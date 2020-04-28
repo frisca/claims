@@ -1,0 +1,20 @@
+master item
+- format number
+- pada saat edit, harga nya hilang di kolom harga
+
+transaksi penjualan
+- date picker di header belum ada jadi tanggal belum bisa di pilih
+- di tampilan header, di tampilkan field berikut (disabled field) :
+  * CreatedBy (nama user yang membuat transaksi)
+  * CreatedDate (tgl di input nya transaksi dd-mm-yyyy h:i:s)
+  * LastmodifiedBy (nama user yang mengedit transaksi)
+  * ModifiedDate (tgl di edit nya transaksi dd-mm-yyyy h:i:s)
+- satuan belum ambil dari master item pada saat item di pilih
+- format number di harga satuan & total
+- saat edit item,yang dapat di ubah hanya item & jumlah, yang lainya di disabled
+- saat edit item, pada saat item di ubah total harga tidak berubah
+- field total & grand total di header di disabled
+- ada fitur untuk edit dp, untuk level administrator
+- nomor penjualan pada saat di checkout di ubah menjadi nomor invoice asli
+- untuk icon edit & delete, hanya tampil jika status masih "Belum Bayar"
+- untuk fungsi delete, jangan di hapus dari transaksi, tapi hanya status nya di ubah menjadi "Cancel", pada saat icon delete di klik, akan tampil pop up untuk mengisi keterangan di hapus karena apa, dan di simpan user id yang melakukan delete serta tgl transaksi di delete

@@ -28,13 +28,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Admin</h2>
+                            <h2 class="pageheader-title">Persyaratan</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Pengguna</li>
-                                        <li class="breadcrumb-item active" aria-current="page">Admin</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Persyaratan</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -50,7 +49,7 @@
                     <!-- ============================================================== -->
                     <div class="col-lg-12">
                         <div class="card">
-                            <h5 class="card-header">Tambah Data Admin</h5>
+                            <h5 class="card-header">Tambah Data Persyaratan</h5>
                             <div class="card-body">
                                 <?php if($this->session->flashdata('success') != ""){ ?>
                                 <div class="alert alert-success alert-dismissible">
@@ -63,28 +62,26 @@
                                     <?php echo $this->session->flashdata('error');?>
                                 </div>  
                                 <?php } ?>
-                                <form method="post" action="<?php echo base_url('admin/processAdd');?>">
+                                <form method="post" action="<?php echo base_url('persyaratan/processAdd');?>">
                                     <div class="form-group">
-                                        <label>Nama</label>
-                                        <input type="text" name="nama" class="form-control" id="nama" required>
+                                        <label>Jenis Formulir</label>
+                                        <select class="form-control" name="id_jenis" id="jenis_formulir" required>
+                                            <option value="0">Pilih Jenis Formulir</option>
+                                            <?php
+                                                if(!empty($jenis_formulir)){
+                                                    foreach ($jenis_formulir as $key => $value) {
+                                            ?>
+                                                <option value="<?php echo $value->id_jenis?>"><?php echo $value->jenis_formulir;?></option>
+                                            <?php
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Username</label>
-                                        <input type="text" name="username" class="form-control" id="username"
-                                        required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" name="password" class="form-control" id="password"
-                                        required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" name="email" class="form-control" id="email"
-                                        required>
+                                        <label>Persyaratan</label>
+                                        <input type="text" name="persyaratan" class="form-control" id="persyaratan" required>
                                     </div>
 
                                     <div class="form-group">
@@ -97,8 +94,8 @@
                                     </div>
 
                                     <div class="float-left">
-                                        <button type="submit" class="btn btn-space btn-primary">Simpan</button>
-                                        <a href="<?php echo base_url('admin/index');?>">
+                                        <button type="submit" class="btn btn-space btn-primary" id="save_persyaratan">Simpan</button>
+                                        <a href="<?php echo base_url('persyaratan/index');?>">
                                             <button type="button" class="btn btn-space btn-secondary">Kembali</button>
                                         </a>
                                     </div>

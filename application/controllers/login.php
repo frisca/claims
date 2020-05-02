@@ -20,8 +20,8 @@ class Login extends CI_Controller {
 		if($row > 0){
 			$res = $this->global_model->getDataByCondition("pengguna", $condition)->row();
 			$data_session = array(
-				'username'  => $res->pengguna,
-				'id'		=> $res->id,
+				'username'  => $res->username,
+				'id'		=> $res->id_pengguna,
 				'logged_in' => 1,
 				'role'		=> (int)$res->role
 			);
@@ -31,6 +31,11 @@ class Login extends CI_Controller {
 			$this->session->set_flashdata('error', 'Username dan password invalid');
 			redirect(base_url() . 'login/index');
 		}
+	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect(base_url('login'));
 	}
 }
 

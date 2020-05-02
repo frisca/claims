@@ -28,13 +28,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Admin</h2>
+                            <h2 class="pageheader-title">Pertanyaan</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Pengguna</li>
-                                        <li class="breadcrumb-item active" aria-current="page">Admin</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Pertanyaan</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -51,63 +50,46 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="float-left" style="margin-top: 10px;">Daftar Admin</h3>
-                                <a href="<?php echo base_url('admin/add');?>">
-                                    <button class="btn float-right btn-primary">Tambah</button>
-                                </a>
+                                <h3 class="float-left" style="margin-top: 10px;">Lihat Data Pertanyaan</h3>
                             </div>
                             <div class="card-body">
-                                <?php if($this->session->flashdata('success') != ""){ ?>
-                                <div class="alert alert-success alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <?php echo $this->session->flashdata('success');?>
-                                </div>  
-                                <?php }else if($this->session->flashdata('error') != ""){ ?>
-                                <div class="alert alert-danger alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <?php echo $this->session->flashdata('error');?>
-                                </div>  
-                                <?php } ?>
-                                <table class="table table-striped table-bordered first" id="example">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama</th>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
+                                <table class="table table-striped table-bordered first">
                                     <tbody>
-                                        <?php
-                                            foreach ($user as $key => $value) {
-                                        ?>
                                         <tr>
-                                            <td><?php echo $value->nama;?></td>
-                                            <td><?php echo $value->username;?></td>
-                                            <td><?php echo $value->email;?></td>
+                                            <th>Urutan</th>
+                                            <td><?php echo $pertanyaan->urutan;?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Pertanyaan</th>
+                                            <td><?php echo $pertanyaan->pertanyaan;?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Pilihan Jawaban 1</th>
+                                            <td><?php echo $pertanyaan->pilihan_jawaban_1;?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Pilihan Jawaban 2</th>
+                                            <td><?php echo $pertanyaan->pilihan_jawaban_2;?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Status</th>
                                             <td>
-                                                <a href="<?php echo base_url('admin/detail/' . $value->id_pengguna);?>">
-                                                    <button class="btn btn-info">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="<?php echo base_url('admin/edit/' . $value->id_pengguna);?>">
-                                                    <button class="btn btn-success">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="<?php echo base_url('admin/delete/' . $value->id_pengguna);?>">
-                                                    <button class="btn btn-danger">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </a>
+                                                <?php
+                                                    if($pertanyaan->status == 1){
+                                                        echo 'Aktif';
+                                                    }else{
+                                                        echo 'Tidak Aktif';
+                                                    }
+                                                ?>
                                             </td>
                                         </tr>
-                                        <?php
-                                            }
-                                        ?>
                                     </tbody>
                                 </table>
+                                <div>
+                                    <a href="<?php echo base_url('pertanyaan/index');?>">
+                                        <button type="button" class="btn btn-space btn-default" style="margin-top: 15px;">Kembali</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <!-- <button class="btn float-right btn-primary">Tambah</button> -->

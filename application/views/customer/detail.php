@@ -28,13 +28,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Admin</h2>
+                            <h2 class="pageheader-title">Customer</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Pengguna</li>
-                                        <li class="breadcrumb-item active" aria-current="page">Admin</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Customer</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -46,68 +46,53 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- ============================================================== -->
-                    <!-- validation form -->
+                    <!-- basic table  -->
                     <!-- ============================================================== -->
                     <div class="col-lg-12">
                         <div class="card">
-                            <h5 class="card-header">Tambah Data Admin</h5>
+                            <div class="card-header">
+                                <h3 class="float-left" style="margin-top: 10px;">Lihat Data Customer</h3>
+                            </div>
                             <div class="card-body">
-                                <?php if($this->session->flashdata('success') != ""){ ?>
-                                <div class="alert alert-success alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <?php echo $this->session->flashdata('success');?>
-                                </div>  
-                                <?php }else if($this->session->flashdata('error') != ""){ ?>
-                                <div class="alert alert-danger alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <?php echo $this->session->flashdata('error');?>
-                                </div>  
-                                <?php } ?>
-                                <form method="post" action="<?php echo base_url('admin/processAdd');?>">
-                                    <div class="form-group">
-                                        <label>Nama</label>
-                                        <input type="text" name="nama" class="form-control" id="nama" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Username</label>
-                                        <input type="text" name="username" class="form-control" id="username"
-                                        required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" name="password" class="form-control" id="password"
-                                        required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" name="email" class="form-control" id="email"
-                                        required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Status</label>
-                                        <select class="form-control" name="status" id="status" required>
-                                            <option value="0">Pilih Status</option>
-                                            <option value="1">Aktif</option>
-                                            <option value="2">Tidak Aktif</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="float-left">
-                                        <button type="submit" class="btn btn-space btn-primary">Simpan</button>
-                                        <a href="<?php echo base_url('admin/index');?>">
-                                            <button type="button" class="btn btn-space btn-secondary">Kembali</button>
-                                        </a>
-                                    </div>
-                                </form>
+                                <table class="table table-striped table-bordered first">
+                                    <tbody>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <td><?php echo $user->nama;?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Username</th>
+                                            <td><?php echo $user->username;?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td><?php echo $user->email;?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Status</th>
+                                            <td>
+                                                <?php
+                                                    if($user->status == 1){
+                                                        echo 'Aktif';
+                                                    }else{
+                                                        echo 'Tidak Aktif';
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <a href="<?php echo base_url('customer/index');?>">
+                                        <button type="button" class="btn btn-space btn-default" style="margin-top: 15px;">Kembali</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                        <!-- <button class="btn float-right btn-primary">Tambah</button> -->
                     </div>
                     <!-- ============================================================== -->
-                    <!-- end validation form -->
+                    <!-- end basic table  -->
                     <!-- ============================================================== -->
                 </div>
             </div>

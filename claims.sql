@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2020 at 01:33 PM
+-- Generation Time: May 02, 2020 at 03:50 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -25,35 +25,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `header_pertanyaan`
---
-
-CREATE TABLE `header_pertanyaan` (
-  `id_header_pertanyaan` bigint(20) NOT NULL,
-  `id_jenis_formulir` int(11) NOT NULL,
-  `dibuat_oleh` int(11) NOT NULL,
-  `dibuat_tanggal` date NOT NULL,
-  `diubah_oleh` int(11) NOT NULL,
-  `diubah_tanggal` date NOT NULL,
-  `status` int(11) NOT NULL,
-  `status_approve` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `jenis_formulir`
 --
 
 CREATE TABLE `jenis_formulir` (
   `id_jenis` bigint(20) NOT NULL,
-  `jenis_formulir` int(11) NOT NULL,
+  `jenis_formulir` varchar(200) NOT NULL,
   `dibuat_oleh` bigint(20) NOT NULL,
   `dibuat_tanggal` date NOT NULL,
   `diubah_oleh` bigint(20) NOT NULL,
   `diubah_tanggal` date NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jenis_formulir`
+--
+
+INSERT INTO `jenis_formulir` (`id_jenis`, `jenis_formulir`, `dibuat_oleh`, `dibuat_tanggal`, `diubah_oleh`, `diubah_tanggal`, `status`) VALUES
+(3, 'B210', 1, '2020-05-01', 0, '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
@@ -76,7 +66,8 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `nama`, `username`, `password`, `email`, `role`, `status`) VALUES
-(1, 'admin', 'admin', '827ccb0eea8a706c4c34a16891f84e7b', 'admin@gmail.com', 1, 0);
+(1, 'admin', 'admin', '827ccb0eea8a706c4c34a16891f84e7b', 'admin@gmail.com', 1, 1),
+(6, 'test', 'test', 'e10adc3949ba59abbe56e057f20f883e', 'test@gmail.com', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -91,7 +82,8 @@ CREATE TABLE `persyaratan` (
   `dibuat_tanggal` date NOT NULL,
   `diubah_oleh` int(11) NOT NULL,
   `diubah_tanggal` date NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `id_jenis` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -102,14 +94,35 @@ CREATE TABLE `persyaratan` (
 
 CREATE TABLE `pertanyaan` (
   `id_pertanyaan` bigint(20) NOT NULL,
-  `id_jenis_formulir` int(11) NOT NULL,
   `dibuat_oleh` int(11) NOT NULL,
   `dibuat_tanggal` date NOT NULL,
   `diubah_oleh` int(11) NOT NULL,
   `diubah_tanggal` date NOT NULL,
   `pertanyaan` varchar(2500) NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `urutan` int(11) NOT NULL,
+  `pilihan_jawaban_1` varchar(10) NOT NULL,
+  `pilihan_jawaban_2` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pertanyaan`
+--
+
+INSERT INTO `pertanyaan` (`id_pertanyaan`, `dibuat_oleh`, `dibuat_tanggal`, `diubah_oleh`, `diubah_tanggal`, `pertanyaan`, `status`, `urutan`, `pilihan_jawaban_1`, `pilihan_jawaban_2`) VALUES
+(2, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA PESERTA TASPEN/PNS/YANG BERSANGKUTAN LANGSUNG?', 1, 1, 'YA', 'TIDAK'),
+(3, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA SUDAH MENGAJUKAN PENSIUN?', 1, 2, 'YA', 'TIDAK'),
+(4, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN ASKEM ISTRI/SUAMI?', 1, 3, 'YA', 'TIDAK'),
+(5, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN ASKEM ANAK?', 1, 4, 'YA', 'TIDAK'),
+(6, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN PENSIUN PERTAMA?', 1, 5, 'YA', 'TIDAK'),
+(7, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN ASKEM ISTRI/SUAMI?', 1, 6, 'YA', 'TIDAK'),
+(8, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN ASKEM ANAK?', 1, 7, 'YA', 'TIDAK'),
+(9, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA BERHENTI DARI STATUS PNS?', 1, 8, 'YA', 'TIDAK'),
+(10, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN ASKEM PESERTA AKTIF MENINGGAL?', 1, 9, 'YA', 'TIDAK'),
+(11, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN ASKEM PESERTA PENSIUN MENINGGAL?', 1, 10, 'YA', 'TIDAK'),
+(12, 1, '2020-05-02', 1, '2020-05-02', 'ADA ISTRI?', 1, 11, 'YA', 'TIDAK'),
+(13, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN PENSIUN JANDA?', 1, 12, 'YA', 'TIDAK'),
+(14, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN PENSIUN YATIM?', 1, 13, 'YA', 'TIDAK');
 
 -- --------------------------------------------------------
 
@@ -119,20 +132,14 @@ CREATE TABLE `pertanyaan` (
 
 CREATE TABLE `pertanyaan_detail` (
   `id_pertanyaan_detail` bigint(20) NOT NULL,
-  `pertanyaan` varchar(2500) NOT NULL,
+  `id_pertanyaan` bigint(20) NOT NULL,
   `jawaban` varchar(2500) NOT NULL,
-  `id_header_pertanyaan` bigint(20) NOT NULL
+  `hasil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `header_pertanyaan`
---
-ALTER TABLE `header_pertanyaan`
-  ADD PRIMARY KEY (`id_header_pertanyaan`);
 
 --
 -- Indexes for table `jenis_formulir`
@@ -169,22 +176,16 @@ ALTER TABLE `pertanyaan_detail`
 --
 
 --
--- AUTO_INCREMENT for table `header_pertanyaan`
---
-ALTER TABLE `header_pertanyaan`
-  MODIFY `id_header_pertanyaan` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `jenis_formulir`
 --
 ALTER TABLE `jenis_formulir`
-  MODIFY `id_jenis` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_jenis` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pengguna` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `persyaratan`
@@ -196,7 +197,7 @@ ALTER TABLE `persyaratan`
 -- AUTO_INCREMENT for table `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
-  MODIFY `id_pertanyaan` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pertanyaan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `pertanyaan_detail`

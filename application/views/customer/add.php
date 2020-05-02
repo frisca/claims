@@ -28,13 +28,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Admin</h2>
+                            <h2 class="pageheader-title">Customer</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Pengguna</li>
-                                        <li class="breadcrumb-item active" aria-current="page">Admin</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Customer</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -50,7 +50,7 @@
                     <!-- ============================================================== -->
                     <div class="col-lg-12">
                         <div class="card">
-                            <h5 class="card-header">Tambah Data Admin</h5>
+                            <h5 class="card-header">Tambah Data Customer</h5>
                             <div class="card-body">
                                 <?php if($this->session->flashdata('success') != ""){ ?>
                                 <div class="alert alert-success alert-dismissible">
@@ -63,7 +63,7 @@
                                     <?php echo $this->session->flashdata('error');?>
                                 </div>  
                                 <?php } ?>
-                                <form method="post" action="<?php echo base_url('admin/processAdd');?>">
+                                <form method="post" action="<?php echo base_url('customer/processAdd');?>">
                                     <div class="form-group">
                                         <label>Nama</label>
                                         <input type="text" name="nama" class="form-control" id="nama" required>
@@ -98,7 +98,7 @@
 
                                     <div class="float-left">
                                         <button type="submit" class="btn btn-space btn-primary">Simpan</button>
-                                        <a href="<?php echo base_url('admin/index');?>">
+                                        <a href="<?php echo base_url('customer/index');?>">
                                             <button type="button" class="btn btn-space btn-secondary">Kembali</button>
                                         </a>
                                     </div>

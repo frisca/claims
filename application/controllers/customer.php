@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	class Admin extends CI_Controller {
+	class Customer extends CI_Controller {
 
 		public function __construct(){
 			parent::__construct();
@@ -8,13 +8,13 @@
 
 		public function index()
 		{
-			$condition = array('role' => 1);
+			$condition = array('role' => 2);
 			$data['user'] = $this->global_model->getDataByCondition('pengguna', $condition)->result();
-			$this->load->view('admin/index', $data);
+			$this->load->view('customer/index', $data);
 		}
 
 		public function add(){
-			$this->load->view('admin/add');
+			$this->load->view('customer/add');
 		}
 
 		public function processAdd(){
@@ -24,15 +24,15 @@
 				'password' => md5($this->input->post('password')),
 					'email' => $this->input->post('email'),
 				'status' => $this->input->post('status'),
-				'role' => 1
+				'role' => 2
 			);
 			$res = $this->global_model->insertData('pengguna', $data);
 			if($res == false){
-				$this->session->set_flashdata('error', 'Data admin gagal disimpan');
-				return redirect(base_url() . 'admin/add');
+				$this->session->set_flashdata('error', 'Data customer gagal disimpan');
+				return redirect(base_url() . 'customer/add');
 			}
-			$this->session->set_flashdata('success', 'Data admin berhasil disimpan');
-			return redirect(base_url() . 'admin/index');
+			$this->session->set_flashdata('success', 'Data customer berhasil disimpan');
+			return redirect(base_url() . 'customer/index');
 		}
 
 		public function edit($id){
@@ -40,7 +40,7 @@
 				'id_pengguna' => $id
 			);
 			$data['user'] = $this->global_model->getDataByCondition('pengguna', $condition)->row();
-			$this->load->view('admin/edit', $data);
+			$this->load->view('customer/edit', $data);
 		}
 
 		public function processEdit($id){
@@ -55,16 +55,16 @@
 				'password' => (empty($this->input->post('password'))) ? $user->password : md5($this->input->post('password')),
 					'email' => $this->input->post('email'),
 				'status' => $this->input->post('status'),
-				'role' => 1
+				'role' => 2
 			);
 
 			$res = $this->global_model->updateData('pengguna', $condition, $data);
 			if($res == false){
-				$this->session->set_flashdata('error', 'Data admin gagal diubah');
-				return redirect(base_url() . 'admin/edit/' . $id);
+				$this->session->set_flashdata('error', 'Data customer gagal diubah');
+				return redirect(base_url() . 'customer/edit/' . $id);
 			}
-			$this->session->set_flashdata('success', 'Data admin berhasil diubah');
-			return redirect(base_url() . 'admin/index');
+			$this->session->set_flashdata('success', 'Data customer berhasil diubah');
+			return redirect(base_url() . 'customer/index');
 		}
 
 		public function detail($id){
@@ -72,7 +72,7 @@
 				'id_pengguna' => $id
 			);
 			$data['user'] = $this->global_model->getDataByCondition('pengguna', $condition)->row();
-			$this->load->view('admin/detail', $data);
+			$this->load->view('customer/detail', $data);
 		}
 
 		public function delete($id){
@@ -81,11 +81,11 @@
 			);
 			$res = $this->global_model->deleteData('pengguna', $condition);
 			if($res == false){
-				$this->session->set_flashdata('error', 'Data admin gagal dihapus');
-				return redirect(base_url() . 'admin/index/' . $id);
+				$this->session->set_flashdata('error', 'Data customer gagal dihapus');
+				return redirect(base_url() . 'customer/index/' . $id);
 			}
-			$this->session->set_flashdata('success', 'Data admin berhasil dihapus');
-			return redirect(base_url() . 'admin/index');
+			$this->session->set_flashdata('success', 'Data customer berhasil dihapus');
+			return redirect(base_url() . 'customer/index');
 		}
 	}
 ?>

@@ -25,6 +25,20 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#example').DataTable();
+            $('#save_persyaratan').click(function(){
+                $status = $('#status option:selected').val();
+                $jenis_formulir = $('#jenis_formulir option:selected').val();
+
+                if($jenis_formulir == 0){
+                    alert("Jenis Formulir harus dipilih");
+                    return false;
+                }
+
+                if($status == 0){
+                    alert("Statu harus dipilih");
+                    return false;
+                }
+            })
         } );
     </script>
 </body>

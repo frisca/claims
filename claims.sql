@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2020 at 03:50 PM
+-- Generation Time: May 03, 2020 at 06:12 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `claims`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jawaban_pertanyaan`
+--
+
+CREATE TABLE `jawaban_pertanyaan` (
+  `id_jawaban` bigint(20) NOT NULL,
+  `id_pertanyaan` int(11) NOT NULL,
+  `jawaban` varchar(50) NOT NULL,
+  `hasil` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jawaban_pertanyaan`
+--
+
+INSERT INTO `jawaban_pertanyaan` (`id_jawaban`, `id_pertanyaan`, `jawaban`, `hasil`) VALUES
+(2, 2, 'YA', '3');
 
 -- --------------------------------------------------------
 
@@ -124,22 +144,15 @@ INSERT INTO `pertanyaan` (`id_pertanyaan`, `dibuat_oleh`, `dibuat_tanggal`, `diu
 (13, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN PENSIUN JANDA?', 1, 12, 'YA', 'TIDAK'),
 (14, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN PENSIUN YATIM?', 1, 13, 'YA', 'TIDAK');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `pertanyaan_detail`
---
-
-CREATE TABLE `pertanyaan_detail` (
-  `id_pertanyaan_detail` bigint(20) NOT NULL,
-  `id_pertanyaan` bigint(20) NOT NULL,
-  `jawaban` varchar(2500) NOT NULL,
-  `hasil` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `jawaban_pertanyaan`
+--
+ALTER TABLE `jawaban_pertanyaan`
+  ADD PRIMARY KEY (`id_jawaban`);
 
 --
 -- Indexes for table `jenis_formulir`
@@ -166,14 +179,14 @@ ALTER TABLE `pertanyaan`
   ADD PRIMARY KEY (`id_pertanyaan`);
 
 --
--- Indexes for table `pertanyaan_detail`
---
-ALTER TABLE `pertanyaan_detail`
-  ADD PRIMARY KEY (`id_pertanyaan_detail`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `jawaban_pertanyaan`
+--
+ALTER TABLE `jawaban_pertanyaan`
+  MODIFY `id_jawaban` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jenis_formulir`
@@ -198,12 +211,6 @@ ALTER TABLE `persyaratan`
 --
 ALTER TABLE `pertanyaan`
   MODIFY `id_pertanyaan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `pertanyaan_detail`
---
-ALTER TABLE `pertanyaan_detail`
-  MODIFY `id_pertanyaan_detail` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -28,12 +28,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Pertanyaan</h2>
+                            <h2 class="pageheader-title">Jawaban Pertanyaan</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Pertanyaan</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Jawaban Pertanyaan</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -45,16 +46,11 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- ============================================================== -->
-                    <!-- basic table  -->
+                    <!-- validation form -->
                     <!-- ============================================================== -->
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h3 class="float-left" style="margin-top: 10px;">Daftar Pertanyaan</h3>
-                                <a href="<?php echo base_url('pertanyaan/add');?>">
-                                    <button class="btn float-right btn-primary">Tambah</button>
-                                </a>
-                            </div>
+                            <h5 class="card-header">Ubah Data Jawaban Pertanyan</h5>
                             <div class="card-body">
                                 <?php if($this->session->flashdata('success') != ""){ ?>
                                 <div class="alert alert-success alert-dismissible">
@@ -67,69 +63,49 @@
                                     <?php echo $this->session->flashdata('error');?>
                                 </div>  
                                 <?php } ?>
-                                <table class="table table-striped table-bordered first" id="example">
-                                    <thead>
-                                        <tr>
-                                            <th>Urutan</th>
-                                            <th>Pertanyaan</th>
-                                            <th>Pilihan Jawaban 1</th>
-                                            <th>Pilihan Jawaban 2</th>
-                                            <th>Status</th>
-                                            <th width="20%"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            foreach ($pertanyaan as $key => $value) {
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $value->urutan;?></td>
-                                            <td><?php echo $value->pertanyaan;?></td>
-                                            <td><?php echo $value->pilihan_jawaban_1;?></td>
-                                            <td><?php echo $value->pilihan_jawaban_2;?></td>
-                                            <td>
-                                                <?php
-                                                    if($value->status == 1){
-                                                        echo 'Aktif';
-                                                    }else{
-                                                        echo 'Tidak Aktif';
+                                <form method="post" action="<?php echo base_url('jawaban_pertanyaan/processEdit/' . $pertanyaan_detail->id_pertanyaan . '/' . $jawaban_pertanyaan->id_jawaban);?>">
+                                    <div class="form-group">
+                                        <label>Pertanyaan</label>
+                                        <input type="text" name="pertanyaan" class="form-control" id="pertanyaan" value="<?php echo $pertanyaan_detail->pertanyaan;?>" disabled>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Jawaban</label>
+                                        <input type="text" name="jawaban" class="form-control" id="jawaban" required value="<?php echo $jawaban_pertanyaan->jawaban;?>">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Hasil</label>
+                                        <select class="form-control" name="hasil" id="hasil" required>
+                                            <option value="0">Download Formulir</option>
+                                            <?php 
+                                                foreach($pertanyaan as $key=>$value){
+                                                    if($value->id_pertanyaan == $jawaban_pertanyaan->hasil){
+                                            ?>
+                                                <option value="<?php echo $value->id_pertanyaan;?>" selected><?php echo $value->pertanyaan;?></option>
+                                            <?php 
+                                                }else{
+                                            ?>
+                                                <option value="<?php echo $value->id_pertanyaan;?>"><?php echo $value->pertanyaan;?></option>
+                                            <?php
                                                     }
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <a href="<?php echo base_url('pertanyaan/detail/' . $value->id_pertanyaan);?>">
-                                                    <button class="btn btn-info">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="<?php echo base_url('pertanyaan/edit/' . $value->id_pertanyaan);?>">
-                                                    <button class="btn btn-success">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="<?php echo base_url('pertanyaan/delete/' . $value->id_pertanyaan);?>">
-                                                    <button class="btn btn-danger">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="<?php echo base_url('jawaban_pertanyaan/lists/' . $value->id_pertanyaan);?>">
-                                                    <button class="btn btn-warning">
-                                                        <i class="fa fa-align-justify"></i>
-                                                    </button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="float-left">
+                                        <button type="submit" class="btn btn-space btn-primary">Simpan</button>
+                                        <a href="<?php echo base_url('pertanyaan/index');?>">
+                                            <button type="button" class="btn btn-space btn-secondary">Kembali</button>
+                                        </a>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <!-- <button class="btn float-right btn-primary">Tambah</button> -->
                     </div>
                     <!-- ============================================================== -->
-                    <!-- end basic table  -->
+                    <!-- end validation form -->
                     <!-- ============================================================== -->
                 </div>
             </div>

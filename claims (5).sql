@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2020 at 06:12 PM
+-- Generation Time: May 26, 2020 at 04:27 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -40,7 +40,30 @@ CREATE TABLE `jawaban_pertanyaan` (
 --
 
 INSERT INTO `jawaban_pertanyaan` (`id_jawaban`, `id_pertanyaan`, `jawaban`, `hasil`) VALUES
-(2, 2, 'YA', '3');
+(2, 2, 'YA', '3'),
+(3, 2, 'TIDAK', '10'),
+(4, 3, 'TIDAK', '6'),
+(5, 3, 'TIDAK', '6'),
+(6, 4, 'YA', '0'),
+(7, 4, 'TIDAK', '5'),
+(8, 5, 'YA', '0'),
+(9, 5, 'TIDAK', '0'),
+(10, 6, 'YA', '0'),
+(11, 6, 'TIDAK', '7'),
+(12, 7, 'YA', '0'),
+(13, 7, 'TIDAK', '8'),
+(14, 8, 'YA', '0'),
+(15, 8, 'TIDAK', '9'),
+(16, 9, 'YA', '0'),
+(17, 9, 'TIDAK', '0'),
+(18, 10, 'YA', '0'),
+(19, 10, 'TIDAK', '11'),
+(20, 11, 'YA', '15'),
+(21, 11, 'TIDAK', '13'),
+(22, 15, 'YA', '0'),
+(23, 15, 'TIDAK', '0'),
+(24, 13, 'YA', '0'),
+(25, 13, 'TIDAK', '14');
 
 -- --------------------------------------------------------
 
@@ -63,7 +86,15 @@ CREATE TABLE `jenis_formulir` (
 --
 
 INSERT INTO `jenis_formulir` (`id_jenis`, `jenis_formulir`, `dibuat_oleh`, `dibuat_tanggal`, `diubah_oleh`, `diubah_tanggal`, `status`) VALUES
-(3, 'B210', 1, '2020-05-01', 0, '0000-00-00', 1);
+(3, 'B210', 1, '2020-05-01', 0, '0000-00-00', 1),
+(4, 'A210', 1, '2020-05-15', 0, '0000-00-00', 1),
+(5, 'B110', 1, '2020-05-20', 0, '0000-00-00', 1),
+(6, 'C110', 1, '2020-05-20', 0, '0000-00-00', 1),
+(7, 'D110', 1, '2020-05-20', 0, '0000-00-00', 0),
+(8, 'E110', 1, '2020-05-20', 0, '0000-00-00', 2),
+(9, 'E210', 1, '2020-05-20', 0, '0000-00-00', 1),
+(10, 'SP2YP', 1, '2020-05-20', 0, '0000-00-00', 2),
+(11, 'SP4B', 1, '2020-05-20', 0, '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -130,7 +161,7 @@ CREATE TABLE `pertanyaan` (
 --
 
 INSERT INTO `pertanyaan` (`id_pertanyaan`, `dibuat_oleh`, `dibuat_tanggal`, `diubah_oleh`, `diubah_tanggal`, `pertanyaan`, `status`, `urutan`, `pilihan_jawaban_1`, `pilihan_jawaban_2`) VALUES
-(2, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA PESERTA TASPEN/PNS/YANG BERSANGKUTAN LANGSUNG?', 1, 1, 'YA', 'TIDAK'),
+(2, 1, '2020-05-02', 1, '2020-05-15', 'APAKAH ANDA PESERTA TASPEN/PNS/YANG BERSANGKUTAN LANGSUNG ?', 1, 1, 'YA', 'TIDAK'),
 (3, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA SUDAH MENGAJUKAN PENSIUN?', 1, 2, 'YA', 'TIDAK'),
 (4, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN ASKEM ISTRI/SUAMI?', 1, 3, 'YA', 'TIDAK'),
 (5, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN ASKEM ANAK?', 1, 4, 'YA', 'TIDAK'),
@@ -140,9 +171,9 @@ INSERT INTO `pertanyaan` (`id_pertanyaan`, `dibuat_oleh`, `dibuat_tanggal`, `diu
 (9, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA BERHENTI DARI STATUS PNS?', 1, 8, 'YA', 'TIDAK'),
 (10, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN ASKEM PESERTA AKTIF MENINGGAL?', 1, 9, 'YA', 'TIDAK'),
 (11, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN ASKEM PESERTA PENSIUN MENINGGAL?', 1, 10, 'YA', 'TIDAK'),
-(12, 1, '2020-05-02', 1, '2020-05-02', 'ADA ISTRI?', 1, 11, 'YA', 'TIDAK'),
 (13, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN PENSIUN JANDA?', 1, 12, 'YA', 'TIDAK'),
-(14, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN PENSIUN YATIM?', 1, 13, 'YA', 'TIDAK');
+(14, 1, '2020-05-02', 1, '2020-05-02', 'APAKAH ANDA INGIN MENGAJUKAN PENSIUN YATIM?', 1, 13, 'YA', 'TIDAK'),
+(15, 1, '2020-05-20', 0, '0000-00-00', 'APAKAH MASIH ADA ISTRI?', 1, 11, 'YA', 'TIDAK');
 
 --
 -- Indexes for dumped tables
@@ -186,13 +217,13 @@ ALTER TABLE `pertanyaan`
 -- AUTO_INCREMENT for table `jawaban_pertanyaan`
 --
 ALTER TABLE `jawaban_pertanyaan`
-  MODIFY `id_jawaban` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_jawaban` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `jenis_formulir`
 --
 ALTER TABLE `jenis_formulir`
-  MODIFY `id_jenis` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jenis` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -210,7 +241,7 @@ ALTER TABLE `persyaratan`
 -- AUTO_INCREMENT for table `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
-  MODIFY `id_pertanyaan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_pertanyaan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

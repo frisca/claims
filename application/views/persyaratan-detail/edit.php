@@ -28,12 +28,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Formulir</h2>
+                            <h2 class="pageheader-title">Detail Persyaratan</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Formulir</li>
+                                        <li class="breadcrumb-item" aria-current="page">Persyaratan</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Detail Persyaratan</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -49,7 +50,7 @@
                     <!-- ============================================================== -->
                     <div class="col-lg-12">
                         <div class="card">
-                            <h5 class="card-header">Formulir</h5>
+                            <h5 class="card-header">Ubah Data Detail Persyaratan</h5>
                             <div class="card-body">
                                 <?php if($this->session->flashdata('success') != ""){ ?>
                                 <div class="alert alert-success alert-dismissible">
@@ -62,61 +63,39 @@
                                     <?php echo $this->session->flashdata('error');?>
                                 </div>  
                                 <?php } ?>
-                                <form method="post" action="<?php echo base_url('formulir/processAdd');?>">
-                                    <input type="hidden" name="formulir" class="form-control" id="formulir" value="<?php echo $formulir;?>">
+                                <form method="post" action="<?php echo base_url('persyaratan_detail/processEdit/' . $persyaratan->id_persyaratan . '/' . $persyaratan->id_detail_persyaratan);?>">
                                     <div class="form-group">
-                                        <label>NIP</label>
-                                        <input type="text" name="nip" class="form-control" id="nip" required value="<?php echo $pengguna->username;?>" disabled>
+                                        <label>Urutan</label>
+                                        <input type="text" name="urutan" class="form-control" value="<?php echo $persyaratan->urutan;?>" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Nama</label>
-                                        <input type="text" name="nama" class="form-control" id="nama" required value="<?php echo $pengguna->nama;?>" disabled>
+                                        <label>Persyaratan</label>
+                                        <textarea class="form-control" name="persyaratan"><?php echo $persyaratan->persyaratan;?></textarea>
+                                    </div>
+<!-- 
+                                    <div class="form-group">
+                                        <label>Urutan</label>
+                                        <input type="text" name="urutan" class="form-control"required>
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Alamat</label>
-                                        <textarea class="form-control" name="alamat"><?php echo $det_pengguna->alamat;?></textarea>
-                                    </div>
+                                        <label>Persyaratan</label>
+                                        <textarea class="form-control" name="persyaratan"></textarea>
+                                    </div> -->
 
-                                    <div class="form-group">
-                                        <label>Provinsi</label>
-                                        <input type="text" name="provinsi" class="form-control" id="provinsi" value="<?php echo $det_pengguna->provinsi;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Kabupaten</label>
-                                        <input type="text" name="kabupaten" class="form-control" id="kabupaten" value="<?php echo $det_pengguna->kabupaten;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Kecamatan</label>
-                                        <input type="text" name="kecamatan" class="form-control" id="kecamatan" value="<?php echo $det_pengguna->kecamatan;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Kelurahan</label>
-                                        <input type="text" name="kelurahan" class="form-control" id="kelurahan" value="<?php echo $det_pengguna->kelurahan;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Kode Pos</label>
-                                        <input type="text" name="kode_pos" class="form-control" value="<?php echo $det_pengguna->kode_pos;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>No Telepon</label>
-                                        <input type="text" name="no_tlp" class="form-control" id="no_tlp" value="<?php echo $det_pengguna->no_tlp;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>No KTP</label>
-                                        <input type="text" name="no_ktp" class="form-control" id="no_ktp" value="<?php echo $det_pengguna->no_ktp;?>" required>
-                                    </div>
+                                    <!-- <div class="form-group">
+                                        <label>Status</label>
+                                        <select class="form-control" name="status" id="status" required>
+                                            <option value="0">Pilih Status</option>
+                                            <option value="1">Aktif</option>
+                                            <option value="2">Tidak Aktif</option>
+                                        </select>
+                                    </div> -->
 
                                     <div class="float-left">
-                                        <button type="submit" class="btn btn-space btn-primary">Simpan</button>
-                                        <a href="<?php echo base_url('home/index');?>">
+                                        <button type="submit" class="btn btn-space btn-primary" id="save_persyaratan">Simpan</button>
+                                        <a href="<?php echo base_url('persyaratan_detail/lists/' . $persyaratan->id_persyaratan);?>">
                                             <button type="button" class="btn btn-space btn-secondary">Kembali</button>
                                         </a>
                                     </div>

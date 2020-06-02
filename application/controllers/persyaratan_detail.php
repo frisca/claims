@@ -41,5 +41,43 @@
 			$data['persyaratan'] = $this->global_model->getDataByCondition('detail_persyaratan', $condition)->row();
 			$this->load->view('persyaratan-detail/detail', $data);
 		}
+
+		public function edit($persyaratan, $persyaratan_detail){
+			$condition = array(
+				'id_detail_persyaratan' => $persyaratan_detail
+			);
+			$data['persyaratan'] = $this->global_model->getDataByCondition('detail_persyaratan', $condition)->row();
+			$this->load->view('persyaratan-detail/edit', $data);
+		}
+
+		public function processEdit($persyaratan, $persyaratan_detail){
+			$condition = array(
+				'id_detail_persyaratan' => $persyaratan_detail
+			);
+			$data = array(
+				'urutan' => $this->input->post('urutan'),
+				'persyaratan' => $this->input->post('persyaratan')
+			);
+			$res = $this->global_model->updateData('detail_persyaratan', $condition, $data);
+			if($res == false){
+				$this->session->set_flashdata('error', 'Data detail persyaratan gagal diubah');
+				return redirect(base_url() . 'persyaratan_detail/edit/' . $persyaratan . '/' . $persyaratan_detail);
+			}
+			$this->session->set_flashdata('success', 'Data detail persyaratan berhasil diubah');
+			return redirect(base_url() . 'persyaratan_detail/lists/' . $persyaratan);
+		}
+
+		public function delete($persyaratan, $persyaratan_detail){
+			$condition = array(
+				'id_detail_persyaratan' => $persyaratan_detail
+			);
+			$res = $this->global_model->deleteData('detail_persyaratan', $condition);
+			if($res == false){
+				$this->session->set_flashdata('error', 'Data detail persyaratan gagal dihapus');
+				return redirect(base_url() . 'persyaratan_detail/lists/' . $persyaratan);
+			}
+			$this->session->set_flashdata('success', 'Data detail persyaratan berhasil dihapus');
+			return redirect(base_url() . 'persyaratan_detail/lists/' . $persyaratan);
+		}
 	}
 ?>

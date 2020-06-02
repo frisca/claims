@@ -45,11 +45,13 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- ============================================================== -->
-                    <!-- validation form -->
+                    <!-- basic table  -->
                     <!-- ============================================================== -->
                     <div class="col-lg-12">
                         <div class="card">
-                            <h5 class="card-header">Formulir</h5>
+                            <div class="card-header">
+                                <h3 class="float-left" style="margin-top: 10px;">Formulir</h3>
+                            </div>
                             <div class="card-body">
                                 <?php if($this->session->flashdata('success') != ""){ ?>
                                 <div class="alert alert-success alert-dismissible">
@@ -62,70 +64,40 @@
                                     <?php echo $this->session->flashdata('error');?>
                                 </div>  
                                 <?php } ?>
-                                <form method="post" action="<?php echo base_url('formulir/processAdd');?>">
-                                    <input type="hidden" name="formulir" class="form-control" id="formulir" value="<?php echo $formulir;?>">
-                                    <div class="form-group">
-                                        <label>NIP</label>
-                                        <input type="text" name="nip" class="form-control" id="nip" required value="<?php echo $pengguna->username;?>" disabled>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Nama</label>
-                                        <input type="text" name="nama" class="form-control" id="nama" required value="<?php echo $pengguna->nama;?>" disabled>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Alamat</label>
-                                        <textarea class="form-control" name="alamat"><?php echo $det_pengguna->alamat;?></textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Provinsi</label>
-                                        <input type="text" name="provinsi" class="form-control" id="provinsi" value="<?php echo $det_pengguna->provinsi;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Kabupaten</label>
-                                        <input type="text" name="kabupaten" class="form-control" id="kabupaten" value="<?php echo $det_pengguna->kabupaten;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Kecamatan</label>
-                                        <input type="text" name="kecamatan" class="form-control" id="kecamatan" value="<?php echo $det_pengguna->kecamatan;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Kelurahan</label>
-                                        <input type="text" name="kelurahan" class="form-control" id="kelurahan" value="<?php echo $det_pengguna->kelurahan;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Kode Pos</label>
-                                        <input type="text" name="kode_pos" class="form-control" value="<?php echo $det_pengguna->kode_pos;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>No Telepon</label>
-                                        <input type="text" name="no_tlp" class="form-control" id="no_tlp" value="<?php echo $det_pengguna->no_tlp;?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>No KTP</label>
-                                        <input type="text" name="no_ktp" class="form-control" id="no_ktp" value="<?php echo $det_pengguna->no_ktp;?>" required>
-                                    </div>
-
-                                    <div class="float-left">
-                                        <button type="submit" class="btn btn-space btn-primary">Simpan</button>
-                                        <a href="<?php echo base_url('home/index');?>">
-                                            <button type="button" class="btn btn-space btn-secondary">Kembali</button>
-                                        </a>
-                                    </div>
-                                </form>
+                                <table class="table table-striped table-bordered first" id="example">
+                                    <thead>
+                                        <tr>
+                                            <th>Jenis Formulir</th>
+                                            <th>Nama Persyaratan</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            foreach ($persyaratan as $key => $value) {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $value->jenis_formulir;?></td>
+                                            <td><?php echo $value->nama_persyaratan;?></td>
+                                            <td>
+                                                <a href="<?php echo base_url('formulir/list_persyaratan/' . $value->id_jenis);?>">
+                                                    <button class="btn btn-info">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+                        <!-- <button class="btn float-right btn-primary">Tambah</button> -->
                     </div>
                     <!-- ============================================================== -->
-                    <!-- end validation form -->
+                    <!-- end basic table  -->
                     <!-- ============================================================== -->
                 </div>
             </div>

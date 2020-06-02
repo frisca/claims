@@ -50,7 +50,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="float-left" style="margin-top: 10px;"><?php echo $persyaratan->nama_persyaratan;?></h3>
+                                <h3 class="float-left" style="margin-top: 10px;"><?php echo $syarat->nama_persyaratan;?></h3>
                             </div>
                             <div class="card-body">
                                 <?php if($this->session->flashdata('success') != ""){ ?>
@@ -64,8 +64,22 @@
                                     <?php echo $this->session->flashdata('error');?>
                                 </div>  
                                 <?php } ?>
+                                <?php
+                                    foreach($persyaratan as $key=>$value){
+                                        if($value->urutan == 1){
+                                ?>
                                 <div>
-                                    <?php echo $persyaratan->persyaratan;?>
+                                    <p><?php echo $value->urutan;?> . <?php echo $value->persyaratan;?></p>
+                                </div>
+                                <?php
+                                        }else{
+                                ?>
+                                
+                                <?php
+                                        }
+                                    }
+                                ?>
+                                <div>
                                 </div>
                             </div>
                             <div class="card-footer">

@@ -59,6 +59,11 @@
                             <i class="fas fa-home"></i>Dashboard
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url('formulir/persyaratan');?>">
+                            <i class="fa fa-clipboard"></i>Formulir
+                        </a>
+                    </li>
                     <?php
                         }
                     ?>

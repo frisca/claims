@@ -19,6 +19,7 @@
 			$condition = array('id_pertanyaan' => $id);
 			$data['pertanyaan_detail'] = $this->global_model->getDataByCondition('pertanyaan', $condition)->row();
 			$data['pertanyaan'] = $this->global_model->getAllData('pertanyaan')->result();
+			$data['jenis_formulir'] = $this->global_model->getDataByCondition('jenis_formulir', array('status' => 1))->result();
 			$this->load->view('jawaban-pertanyaan/add', $data);
 		}
 
@@ -26,7 +27,8 @@
 			$data = array(
 				'id_pertanyaan' => $id,
 				'jawaban' => $this->input->post('jawaban'),
-				'hasil' => $this->input->post('hasil')
+				'hasil' => $this->input->post('hasil'),
+				'id_jenis' => $this->input->post('jenis_formulir')
 			);
 			$res = $this->global_model->insertData('jawaban_pertanyaan', $data);
 			if($res == false){
@@ -44,14 +46,16 @@
 			$condition = array('id_jawaban' => $jawaban);
 			$data['jawaban_pertanyaan'] = $this->global_model->getDataByCondition('jawaban_pertanyaan', $condition)->row();
 			$data['pertanyaan'] = $this->global_model->getAllData('pertanyaan')->result();
+			$data['jenis_formulir'] = $this->global_model->getDataByCondition('jenis_formulir', array('status' => 1))->result();
 			$this->load->view('jawaban-pertanyaan/edit', $data);
 		}
 
 		public function processEdit($pertanyaan, $jawaban){
-			$condition = array('id_pertanyaan' => $pertanyaan);
+			$condition = array('id_pertanyaan' => $pertanyaan, 'id_jawaban' => $jawaban);
 			$data = array(
 				'jawaban' => $this->input->post('jawaban'),
-				'hasil' => $this->input->post('hasil')
+				'hasil' => $this->input->post('hasil'),
+				'id_jenis' => $this->input->post('jenis_formulir')
 			);
 			$res = $this->global_model->updateData('jawaban_pertanyaan', $condition, $data);
 			if($res == false){

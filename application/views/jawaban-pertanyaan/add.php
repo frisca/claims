@@ -76,10 +76,21 @@
 
                                     <div class="form-group">
                                         <label>Hasil</label>
-                                        <select class="form-control" name="hasil" id="hasil" required>
-                                            <option value="0">Download Formulir</option>
+                                        <select class="form-control hasils" name="hasil" required>
+                                            <option value="0">Selesai</option>
+                                            <option value="99">Download Formulir</option>
                                             <?php foreach($pertanyaan as $key=>$value){?>
                                             <option value="<?php echo $value->id_pertanyaan;?>"><?php echo $value->pertanyaan;?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group jenis_formulir" style="display: none;">
+                                        <label>Jenis Formulir</label>
+                                        <select class="form-control" name="jenis_formulir">
+                                            <option value="0">Pilih Jenis Formulir</option>
+                                            <?php foreach($jenis_formulir as $key=>$value){?>
+                                            <option value="<?php echo $value->id_jenis;?>"><?php echo $value->jenis_formulir;?></option>
                                             <?php } ?>
                                         </select>
                                     </div>

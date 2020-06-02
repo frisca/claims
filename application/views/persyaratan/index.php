@@ -71,7 +71,7 @@
                                     <thead>
                                         <tr>
                                             <th>Jenis Formulir</th>
-                                            <th>Persyaratan</th>
+                                            <th>Nama Persyaratan</th>
                                             <th>Status</th>
                                             <th></th>
                                         </tr>
@@ -81,8 +81,8 @@
                                             foreach ($persyaratan as $key => $value) {
                                         ?>
                                         <tr>
-                                            <td><?php echo $value->persyaratan;?></td>
                                             <td><?php echo $value->jenis_formulir;?></td>
+                                            <td><?php echo $value->nama_persyaratan;?></td>
                                             <td>
                                                 <?php
                                                     if($value->status == 1){
@@ -98,14 +98,19 @@
                                                         <i class="fas fa-eye"></i>
                                                     </button>
                                                 </a>
-                                                <a href="<?php echo base_url('persyaratan/edit/' . $value->persyaratan);?>">
+                                                <a href="<?php echo base_url('persyaratan/edit/' . $value->id_persyaratan);?>">
                                                     <button class="btn btn-success">
                                                         <i class="fas fa-edit"></i>
                                                     </button>
                                                 </a>
-                                                <a href="<?php echo base_url('persyaratan/delete/' . $value->persyaratan);?>">
+                                                <a href="<?php echo base_url('persyaratan/delete/' . $value->id_persyaratan);?>">
                                                     <button class="btn btn-danger">
                                                         <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="<?php echo base_url('persyaratan_detail/lists/' . $value->id_persyaratan);?>">
+                                                    <button class="btn btn-warning">
+                                                        <i class="fa fa-align-justify"></i>
                                                     </button>
                                                 </a>
                                             </td>

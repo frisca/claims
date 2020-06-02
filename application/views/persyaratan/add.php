@@ -80,9 +80,19 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Persyaratan</label>
-                                        <input type="text" name="persyaratan" class="form-control" id="persyaratan" required>
+                                        <label>Nama Persyaratan</label>
+                                        <input type="text" name="nama_persyaratan" class="form-control"required>
                                     </div>
+<!-- 
+                                    <div class="form-group">
+                                        <label>Urutan</label>
+                                        <input type="text" name="urutan" class="form-control"required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Persyaratan</label>
+                                        <textarea class="form-control" name="persyaratan"></textarea>
+                                    </div> -->
 
                                     <div class="form-group">
                                         <label>Status</label>

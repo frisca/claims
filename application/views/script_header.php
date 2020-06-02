@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/charts/c3charts/c3.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/fonts/flag-icon-css/flag-icon.min.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/vendor/datatables/css/dataTables.bootstrap4.css');?>">
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckfinder/ckfinder.js"></script>
 
     <title>Sistem Pakar Pengajuan Klaim</title>
 </head>

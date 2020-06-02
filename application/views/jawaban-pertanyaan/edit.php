@@ -76,8 +76,26 @@
 
                                     <div class="form-group">
                                         <label>Hasil</label>
-                                        <select class="form-control" name="hasil" id="hasil" required>
-                                            <option value="0">Download Formulir</option>
+                                        <select class="form-control hasils" name="hasil" required>
+                                            <?php 
+                                                if($jawaban_pertanyaan->hasil  == 99){
+                                            ?>
+                                                <option value="0">Selesai</option>
+                                                <option value="99" selected>Download Formulir</option>
+                                                <?php foreach($pertanyaan as $key=>$value){?>
+                                                <option value="<?php echo $value->id_pertanyaan;?>"><?php echo $value->pertanyaan;?></option>
+                                                <?php } ?>
+                                            <?php 
+                                                }else if($jawaban_pertanyaan->hasil  == 0){
+                                            ?>
+                                                <option value="0" selected>Selesai</option>
+                                                <option value="99">Download Formulir</option>
+                                                <?php foreach($pertanyaan as $key=>$value){?>
+                                                <option value="<?php echo $value->id_pertanyaan;?>"><?php echo $value->pertanyaan;?></option>
+                                                <?php } ?>
+                                            <?php
+                                                }else{
+                                            ?>
                                             <?php 
                                                 foreach($pertanyaan as $key=>$value){
                                                     if($value->id_pertanyaan == $jawaban_pertanyaan->hasil){
@@ -90,9 +108,48 @@
                                             <?php
                                                     }
                                                 }
+                                            }
                                             ?>
                                         </select>
                                     </div>
+                                    
+                                    <?php
+                                        if($jawaban_pertanyaan->hasil == 99){
+                                    ?>
+                                    <div class="form-group jenis_formulir">
+                                        <label>Jenis Formulir</label>
+                                        <select class="form-control" name="jenis_formulir">
+                                            <option value="0">Pilih Jenis Formulir</option>
+                                            <?php 
+                                                foreach($jenis_formulir as $key=>$value){
+                                                    if($value->id_jenis == $jawaban_pertanyaan->id_jenis){
+                                            ?>
+                                            <option value="<?php echo $value->id_jenis;?>" selected><?php echo $value->jenis_formulir;?></option>
+                                            <?php
+                                                }else{
+                                            ?>
+                                            <option value="<?php echo $value->id_jenis;?>"><?php echo $value->jenis_formulir;?></option>
+                                            <?php 
+                                                    } 
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <?php
+                                        }else{
+                                    ?>
+                                    <div class="form-group jenis_formulir" style="display: none;">
+                                        <label>Jenis Formulir</label>
+                                        <select class="form-control" name="jenis_formulir">
+                                            <option value="0">Pilih Jenis Formulir</option>
+                                            <?php foreach($jenis_formulir as $key=>$value){?>
+                                            <option value="<?php echo $value->id_jenis;?>"><?php echo $value->jenis_formulir;?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <?php
+                                        }
+                                    ?>
 
                                     <div class="float-left">
                                         <button type="submit" class="btn btn-space btn-primary">Simpan</button>

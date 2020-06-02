@@ -25,5 +25,11 @@
 			$this->db->where($condition);
 			return $this->db->delete($table, $data);
 		}
+
+		public function getDataByDesc($id){
+			$query = "select * from detail_pengguna where id_pengguna = " . $id . " order by id_detail_pengguna desc limit 1";
+			$result = $this->db->query($query);
+			return $result;
+		}
 	}
 ?>

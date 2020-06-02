@@ -10,6 +10,9 @@
                     <li class="nav-divider">
                         Menu
                     </li>
+                    <?php
+                        if($this->session->userdata('role') == 1){
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link active" href="<?php echo base_url('home/index');?>">
                             <i class="fas fa-home"></i>Dashboard
@@ -48,6 +51,17 @@
                             <i class="fa fa-clipboard"></i>Persyaratan
                         </a>
                     </li>
+                    <?php
+                        }else{
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="<?php echo base_url('home/index');?>">
+                            <i class="fas fa-home"></i>Dashboard
+                        </a>
+                    </li>
+                    <?php
+                        }
+                    ?>
                 </ul>
             </div>
         </nav>

@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title>Sistem Pakar Pengajuan Klaim</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css');?>">
     <link href="<?php echo base_url('assets/vendor/fonts/circular-std/style.css');?>" rel="stylesheet">
@@ -34,7 +34,7 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="<?php echo base_url('assets/images/logo.png');?>" alt="logo"></a><span class="splash-description">Silahkan login masukkan data pengguna Anda.</span></div>
+            <div class="card-header text-center"><h2>Sistem Pakar Pengajuan Klaim</h2><span class="splash-description">Silahkan login masukkan data pengguna Anda.</span></div>
             <div class="card-body">
                 <form method="post" action="<?php echo base_url('login/processLogin');?>">
                     <?php if($this->session->flashdata('success') != ""){ ?>
@@ -49,7 +49,7 @@
                     </div>  
                     <?php } ?>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off" name="username" required>
+                        <input class="form-control form-control-lg" id="username" type="text" placeholder="NIP" autocomplete="off" name="username" required>
                     </div>
                     <div class="form-group">
                         <input class="form-control form-control-lg" id="password" type="password" placeholder="Password" name="password" required>
@@ -58,11 +58,12 @@
                 </form>
             </div>
             <div class="card-footer bg-white p-0  ">
-                <div class="card-footer-item card-footer-item-bordered">
-                    <a href="#" class="footer-link">Buat Akun Baru</a></div>
-                <div class="card-footer-item card-footer-item-bordered">
-                    <a href="#" class="footer-link">Lupa Password</a>
+                <div class="card-footer-item card-footer-item-bordered" style="width: 100%;">
+                    <a href="<?php echo base_url('register/index');?>" class="footer-link">Buat Akun Baru</a>
                 </div>
+                <!-- <div class="card-footer-item card-footer-item-bordered">
+                    <a href="#" class="footer-link">Lupa Password</a>
+                </div> -->
             </div>
         </div>
     </div>

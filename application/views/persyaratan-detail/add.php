@@ -73,6 +73,49 @@
                                         <label>Persyaratan</label>
                                         <textarea class="form-control" name="persyaratan"></textarea>
                                     </div>
+                                    
+                                    <div class="form-group">
+                                        <label>File Formulir</label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input">
+                                            <span class="custom-control-label">F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input">
+                                            <span class="custom-control-label">F2. SPTB</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input">
+                                            <span class="custom-control-label">F3. SURAT KETERANGAN JANDA DUDA</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input">
+                                            <span class="custom-control-label">F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input">
+                                            <span class="custom-control-label">F5. KETERANGAN AHLI WARIS KOREKSI C110</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input">
+                                            <span class="custom-control-label">F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input">
+                                            <span class="custom-control-label">F7. SURAT KETERANGAN PENGUBURAN</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input">
+                                            <span class="custom-control-label">F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH</span>
+                                        </label>
+                                    </div>
 <!-- 
                                     <div class="form-group">
                                         <label>Urutan</label>

@@ -28,12 +28,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Jenis Formulir</h2>
+                            <h2 class="pageheader-title">Persyaratan</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Jenis Formulir</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Persyaratan</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -50,13 +50,13 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="float-left" style="margin-top: 10px;">Lihat Data Jenis Formulir</h3>
+                                <h3 class="float-left" style="margin-top: 10px;">Lihat Data Persyaratan</h3>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped table-bordered first">
                                     <tbody>
                                         <tr>
-                                            <th>Jenis Formulir</th>
+                                            <th>Jenis Klaim</th>
                                             <td>
                                                 <?php 
                                                     foreach ($jenis_formulir as $key => $value) {
@@ -71,10 +71,10 @@
                                             <th>Nama Persyaratan</th>
                                             <td><?php echo $persyaratan->nama_persyaratan;?></td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <th>Persyaratan</th>
                                             <td><?php echo $persyaratan->persyaratan;?></td>
-                                        </tr>
+                                        </tr> -->
                                         <tr>
                                             <th>Status</th>
                                             <td>

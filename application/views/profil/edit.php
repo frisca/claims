@@ -28,13 +28,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Admin</h2>
+                            <h2 class="pageheader-title">Profil</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item" aria-current="page">Pengguna</li>
-                                        <li class="breadcrumb-item active" aria-current="page">Admin</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Profil</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -46,16 +45,11 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- ============================================================== -->
-                    <!-- basic table  -->
+                    <!-- validation form -->
                     <!-- ============================================================== -->
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h3 class="float-left" style="margin-top: 10px;">Daftar Admin</h3>
-                                <a href="<?php echo base_url('admin/add');?>">
-                                    <button class="btn float-right btn-primary">Tambah</button>
-                                </a>
-                            </div>
+                            <h5 class="card-header">Ubah Data Profil</h5>
                             <div class="card-body">
                                 <?php if($this->session->flashdata('success') != ""){ ?>
                                 <div class="alert alert-success alert-dismissible">
@@ -68,52 +62,36 @@
                                     <?php echo $this->session->flashdata('error');?>
                                 </div>  
                                 <?php } ?>
-                                <table class="table table-striped table-bordered first" id="example">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama</th>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            foreach ($user as $key => $value) {
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $value->nama;?></td>
-                                            <td><?php echo $value->username;?></td>
-                                            <td><?php echo $value->email;?></td>
-                                            <td>
-                                                <a href="<?php echo base_url('admin/detail/' . $value->id_pengguna);?>">
-                                                    <button class="btn btn-info">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="<?php echo base_url('admin/edit/' . $value->id_pengguna);?>">
-                                                    <button class="btn btn-success">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="<?php echo base_url('admin/delete/' . $value->id_pengguna);?>">
-                                                    <button class="btn btn-danger">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
+                                <form method="post" action="<?php echo base_url('profil/processEdit/' . $user->id_pengguna);?>">
+                                    <div class="form-group">
+                                        <label>Nama</label>
+                                        <input type="text" name="nama" class="form-control" id="nama" value="<?php echo $user->nama;?>" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" name="username" class="form-control" id="username"
+                                        required value="<?php echo $user->username;?>">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" name="email" class="form-control" id="email" value="<?php echo $user->email;?>" 
+                                        required>
+                                    </div>
+
+                                    <div class="float-left">
+                                        <button type="submit" class="btn btn-space btn-primary">Simpan</button>
+                                        <a href="<?php echo base_url('home/index');?>">
+                                            <button type="button" class="btn btn-space btn-default">Kembali</button>
+                                        </a>
+                                    </p>
+                                </form>
                             </div>
                         </div>
-                        <!-- <button class="btn float-right btn-primary">Tambah</button> -->
                     </div>
                     <!-- ============================================================== -->
-                    <!-- end basic table  -->
+                    <!-- end validation form -->
                     <!-- ============================================================== -->
                 </div>
             </div>

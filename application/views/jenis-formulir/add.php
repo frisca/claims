@@ -28,12 +28,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Jenis Formulir</h2>
+                            <h2 class="pageheader-title">Jenis Klaim</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Jenis Formulir</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Jenis Klaim</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -49,7 +49,7 @@
                     <!-- ============================================================== -->
                     <div class="col-lg-12">
                         <div class="card">
-                            <h5 class="card-header">Tambah Data Jenis Formulir</h5>
+                            <h5 class="card-header">Tambah Data Jenis Klaim</h5>
                             <div class="card-body">
                                 <?php if($this->session->flashdata('success') != ""){ ?>
                                 <div class="alert alert-success alert-dismissible">
@@ -64,7 +64,7 @@
                                 <?php } ?>
                                 <form method="post" action="<?php echo base_url('jenis_formulir/processAdd');?>">
                                     <div class="form-group">
-                                        <label>Jenis Formulir</label>
+                                        <label>Jenis Klaim</label>
                                         <input type="text" name="jenis_formulir" class="form-control" id="jenis_formulir" required>
                                     </div>
 

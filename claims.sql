@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Waktu pembuatan: 02 Jun 2020 pada 13.29
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 5.6.39
+-- Host: 127.0.0.1
+-- Generation Time: Jun 02, 2020 at 05:53 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 5.6.36
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_pengguna`
+-- Table structure for table `detail_pengguna`
 --
 
 CREATE TABLE `detail_pengguna` (
@@ -42,36 +42,37 @@ CREATE TABLE `detail_pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail_pengguna`
+-- Dumping data for table `detail_pengguna`
 --
 
 INSERT INTO `detail_pengguna` (`id_detail_pengguna`, `alamat`, `kode_pos`, `provinsi`, `kabupaten`, `kecamatan`, `kelurahan`, `no_tlp`, `no_ktp`, `id_pengguna`) VALUES
-(4, 't', '1', 't', 't', 't', 't12', '1', '1', 9);
+(4, 't', '1', 't', 't', 't', 't', '1', '1', 9);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_persyaratan`
+-- Table structure for table `detail_persyaratan`
 --
 
 CREATE TABLE `detail_persyaratan` (
   `id_detail_persyaratan` int(11) NOT NULL,
   `urutan` int(11) NOT NULL,
   `persyaratan` varchar(2500) NOT NULL,
-  `id_persyaratan` int(11) NOT NULL
+  `id_persyaratan` int(11) NOT NULL,
+  `files` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail_persyaratan`
+-- Dumping data for table `detail_persyaratan`
 --
 
-INSERT INTO `detail_persyaratan` (`id_detail_persyaratan`, `urutan`, `persyaratan`, `id_persyaratan`) VALUES
-(3, 1, 'MENGISI FORMULIR SPP', 2);
+INSERT INTO `detail_persyaratan` (`id_detail_persyaratan`, `urutan`, `persyaratan`, `id_persyaratan`, `files`) VALUES
+(2, 1, 'MENGISI FORMULIR SPP ', 2, 'F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `formulir`
+-- Table structure for table `formulir`
 --
 
 CREATE TABLE `formulir` (
@@ -83,16 +84,17 @@ CREATE TABLE `formulir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `formulir`
+-- Dumping data for table `formulir`
 --
 
 INSERT INTO `formulir` (`id_pengguna`, `id_jenis_formulir`, `id_detail_pengguna`, `status`, `id_formulir`) VALUES
-(9, 4, 4, 0, 13);
+(9, 4, 4, 0, 10),
+(9, 4, 4, 0, 11);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jawaban_pertanyaan`
+-- Table structure for table `jawaban_pertanyaan`
 --
 
 CREATE TABLE `jawaban_pertanyaan` (
@@ -104,7 +106,7 @@ CREATE TABLE `jawaban_pertanyaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `jawaban_pertanyaan`
+-- Dumping data for table `jawaban_pertanyaan`
 --
 
 INSERT INTO `jawaban_pertanyaan` (`id_jawaban`, `id_pertanyaan`, `jawaban`, `hasil`, `id_jenis`) VALUES
@@ -138,7 +140,7 @@ INSERT INTO `jawaban_pertanyaan` (`id_jawaban`, `id_pertanyaan`, `jawaban`, `has
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jenis_formulir`
+-- Table structure for table `jenis_formulir`
 --
 
 CREATE TABLE `jenis_formulir` (
@@ -152,7 +154,7 @@ CREATE TABLE `jenis_formulir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `jenis_formulir`
+-- Dumping data for table `jenis_formulir`
 --
 
 INSERT INTO `jenis_formulir` (`id_jenis`, `jenis_formulir`, `dibuat_oleh`, `dibuat_tanggal`, `diubah_oleh`, `diubah_tanggal`, `status`) VALUES
@@ -174,7 +176,7 @@ INSERT INTO `jenis_formulir` (`id_jenis`, `jenis_formulir`, `dibuat_oleh`, `dibu
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengguna`
+-- Table structure for table `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -188,17 +190,17 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pengguna`
+-- Dumping data for table `pengguna`
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `nama`, `username`, `password`, `email`, `role`, `status`) VALUES
-(1, 'admin', 'admin', '827ccb0eea8a706c4c34a16891f84e7b', 'admin@gmail.com', 1, 1),
+(1, 'admins', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'admin@gmail.com', 1, 1),
 (9, 'test', '112012311', '827ccb0eea8a706c4c34a16891f84e7b', 'test@gmail.com', 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `persyaratan`
+-- Table structure for table `persyaratan`
 --
 
 CREATE TABLE `persyaratan` (
@@ -213,7 +215,7 @@ CREATE TABLE `persyaratan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `persyaratan`
+-- Dumping data for table `persyaratan`
 --
 
 INSERT INTO `persyaratan` (`id_persyaratan`, `dibuat_oleh`, `dibuat_tanggal`, `diubah_oleh`, `diubah_tanggal`, `status`, `id_jenis`, `nama_persyaratan`) VALUES
@@ -222,7 +224,7 @@ INSERT INTO `persyaratan` (`id_persyaratan`, `dibuat_oleh`, `dibuat_tanggal`, `d
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pertanyaan`
+-- Table structure for table `pertanyaan`
 --
 
 CREATE TABLE `pertanyaan` (
@@ -239,7 +241,7 @@ CREATE TABLE `pertanyaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pertanyaan`
+-- Dumping data for table `pertanyaan`
 --
 
 INSERT INTO `pertanyaan` (`id_pertanyaan`, `dibuat_oleh`, `dibuat_tanggal`, `diubah_oleh`, `diubah_tanggal`, `pertanyaan`, `status`, `urutan`, `pilihan_jawaban_1`, `pilihan_jawaban_2`) VALUES
@@ -262,101 +264,101 @@ INSERT INTO `pertanyaan` (`id_pertanyaan`, `dibuat_oleh`, `dibuat_tanggal`, `diu
 --
 
 --
--- Indeks untuk tabel `detail_pengguna`
+-- Indexes for table `detail_pengguna`
 --
 ALTER TABLE `detail_pengguna`
   ADD PRIMARY KEY (`id_detail_pengguna`);
 
 --
--- Indeks untuk tabel `detail_persyaratan`
+-- Indexes for table `detail_persyaratan`
 --
 ALTER TABLE `detail_persyaratan`
   ADD PRIMARY KEY (`id_detail_persyaratan`);
 
 --
--- Indeks untuk tabel `formulir`
+-- Indexes for table `formulir`
 --
 ALTER TABLE `formulir`
   ADD PRIMARY KEY (`id_formulir`);
 
 --
--- Indeks untuk tabel `jawaban_pertanyaan`
+-- Indexes for table `jawaban_pertanyaan`
 --
 ALTER TABLE `jawaban_pertanyaan`
   ADD PRIMARY KEY (`id_jawaban`);
 
 --
--- Indeks untuk tabel `jenis_formulir`
+-- Indexes for table `jenis_formulir`
 --
 ALTER TABLE `jenis_formulir`
   ADD PRIMARY KEY (`id_jenis`);
 
 --
--- Indeks untuk tabel `pengguna`
+-- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id_pengguna`);
 
 --
--- Indeks untuk tabel `persyaratan`
+-- Indexes for table `persyaratan`
 --
 ALTER TABLE `persyaratan`
   ADD PRIMARY KEY (`id_persyaratan`);
 
 --
--- Indeks untuk tabel `pertanyaan`
+-- Indexes for table `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
   ADD PRIMARY KEY (`id_pertanyaan`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `detail_pengguna`
+-- AUTO_INCREMENT for table `detail_pengguna`
 --
 ALTER TABLE `detail_pengguna`
   MODIFY `id_detail_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `detail_persyaratan`
+-- AUTO_INCREMENT for table `detail_persyaratan`
 --
 ALTER TABLE `detail_persyaratan`
-  MODIFY `id_detail_persyaratan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_detail_persyaratan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `formulir`
+-- AUTO_INCREMENT for table `formulir`
 --
 ALTER TABLE `formulir`
-  MODIFY `id_formulir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_formulir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `jawaban_pertanyaan`
+-- AUTO_INCREMENT for table `jawaban_pertanyaan`
 --
 ALTER TABLE `jawaban_pertanyaan`
   MODIFY `id_jawaban` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT untuk tabel `jenis_formulir`
+-- AUTO_INCREMENT for table `jenis_formulir`
 --
 ALTER TABLE `jenis_formulir`
   MODIFY `id_jenis` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT untuk tabel `pengguna`
+-- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
   MODIFY `id_pengguna` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `persyaratan`
+-- AUTO_INCREMENT for table `persyaratan`
 --
 ALTER TABLE `persyaratan`
   MODIFY `id_persyaratan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `pertanyaan`
+-- AUTO_INCREMENT for table `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
   MODIFY `id_pertanyaan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;

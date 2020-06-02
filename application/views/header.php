@@ -58,7 +58,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown connection">
+               <!--  <li class="nav-item dropdown connection">
                     <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
                     <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
                         <li class="connection-list">
@@ -89,7 +89,7 @@
                             <div class="conntection-footer"><a href="#">More</a></div>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="nav-item dropdown nav-user">
                     <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url('assets/images/avatar-1.jpg');?>" alt="" class="user-avatar-md rounded-circle"></a>
                     <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
@@ -98,8 +98,8 @@
                                 <?php echo $this->session->userdata('username');?> 
                             </h5>
                         </div>
-                        <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                        <a class="dropdown-item" href="<?php echo base_url('profil/edit');?>"><i class="fas fa-user mr-2"></i>Profil</a>
+                        <a class="dropdown-item" href="<?php echo base_url('profil/change_password');?>"><i class="fas fa-cog mr-2"></i>Ubah Password</a>
                         <a class="dropdown-item" href="<?php echo base_url('login/logout');?>"><i class="fas fa-power-off mr-2"></i>Logout</a>
                     </div>
                 </li>

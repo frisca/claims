@@ -22,7 +22,8 @@
 			$data = array(
 				'urutan' => $this->input->post('urutan'),
 				'persyaratan' => $this->input->post('persyaratan'),
-				'id_persyaratan' => $id
+				'id_persyaratan' => $id,
+				'files' => $this->input->post('files')
 				// 'persyaratan' => $this->input->post('persyaratan')
 			);
 			$res = $this->global_model->insertData('detail_persyaratan', $data);
@@ -56,7 +57,8 @@
 			);
 			$data = array(
 				'urutan' => $this->input->post('urutan'),
-				'persyaratan' => $this->input->post('persyaratan')
+				'persyaratan' => $this->input->post('persyaratan'),
+				'files' => $this->input->post('files')
 			);
 			$res = $this->global_model->updateData('detail_persyaratan', $condition, $data);
 			if($res == false){

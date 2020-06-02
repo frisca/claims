@@ -28,12 +28,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Jenis Formulir</h2>
+                            <h2 class="pageheader-title">Jenis Klaim</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Jenis Formulir</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Jenis Klaim</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -50,7 +50,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="float-left" style="margin-top: 10px;">Daftar Jenis Formulir</h3>
+                                <h3 class="float-left" style="margin-top: 10px;">Daftar Jenis Klaim</h3>
                                 <a href="<?php echo base_url('jenis_formulir/add');?>">
                                     <button class="btn float-right btn-primary">Tambah</button>
                                 </a>
@@ -70,7 +70,7 @@
                                 <table class="table table-striped table-bordered first" id="example">
                                     <thead>
                                         <tr>
-                                            <th>Jenis Formulir</th>
+                                            <th>Jenis Klaim</th>
                                             <th>Status</th>
                                             <th></th>
                                         </tr>

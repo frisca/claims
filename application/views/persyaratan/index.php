@@ -70,7 +70,7 @@
                                 <table class="table table-striped table-bordered first" id="example">
                                     <thead>
                                         <tr>
-                                            <th>Jenis Formulir</th>
+                                            <th>Jenis Klaim</th>
                                             <th>Nama Persyaratan</th>
                                             <th>Status</th>
                                             <th></th>

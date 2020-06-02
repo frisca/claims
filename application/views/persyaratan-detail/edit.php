@@ -73,25 +73,391 @@
                                         <label>Persyaratan</label>
                                         <textarea class="form-control" name="persyaratan"><?php echo $persyaratan->persyaratan;?></textarea>
                                     </div>
-<!-- 
+                                    
                                     <div class="form-group">
-                                        <label>Urutan</label>
-                                        <input type="text" name="urutan" class="form-control"required>
+                                        <label>File Formulir</label>
+                                        <?php
+                                            if($persyaratan->files == ""){
+                                        ?>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI">
+                                            <span class="custom-control-label">F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F2. SPTB">
+                                            <span class="custom-control-label">F2. SPTB</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F3. SURAT KETERANGAN JANDA DUDA">
+                                            <span class="custom-control-label">F3. SURAT KETERANGAN JANDA DUDA</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH">
+                                            <span class="custom-control-label">F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F5. KETERANGAN AHLI WARIS KOREKSI">
+                                            <span class="custom-control-label">F5. KETERANGAN AHLI WARIS KOREKSI C110</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI">
+                                            <span class="custom-control-label">F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F7. SURAT KETERANGAN PENGUBURAN">
+                                            <span class="custom-control-label">F7. SURAT KETERANGAN PENGUBURAN</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH">
+                                            <span class="custom-control-label">F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH</span>
+                                        </label>
+                                        <?php
+                                            }else if($persyaratan->files == "F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI"){
+                                        ?>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" checked="" value="F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI">
+                                            <span class="custom-control-label">F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F2. SPTB">
+                                            <span class="custom-control-label">F2. SPTB</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F3. SURAT KETERANGAN JANDA DUDA">
+                                            <span class="custom-control-label">F3. SURAT KETERANGAN JANDA DUDA</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH">
+                                            <span class="custom-control-label">F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F5. KETERANGAN AHLI WARIS KOREKSI C110">
+                                            <span class="custom-control-label">F5. KETERANGAN AHLI WARIS KOREKSI C110</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI">
+                                            <span class="custom-control-label">F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F7. SURAT KETERANGAN PENGUBURAN">
+                                            <span class="custom-control-label">F7. SURAT KETERANGAN PENGUBURAN</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH">
+                                            <span class="custom-control-label">F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH</span>
+                                        </label>
+                                        <?php 
+                                            }else if($persyaratan->files == "F2. SPTB"){
+                                        ?>
+                                       <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI">
+                                            <span class="custom-control-label">F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F2. SPTB" checked="">
+                                            <span class="custom-control-label">F2. SPTB</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F3. SURAT KETERANGAN JANDA DUDA">
+                                            <span class="custom-control-label">F3. SURAT KETERANGAN JANDA DUDA</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH">
+                                            <span class="custom-control-label">F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F5. KETERANGAN AHLI WARIS KOREKSI C110">
+                                            <span class="custom-control-label">F5. KETERANGAN AHLI WARIS KOREKSI C110</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI">
+                                            <span class="custom-control-label">F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F7. SURAT KETERANGAN PENGUBURAN">
+                                            <span class="custom-control-label">F7. SURAT KETERANGAN PENGUBURAN</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH">
+                                            <span class="custom-control-label">F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH</span>
+                                        </label>
+                                        <?php 
+                                            }else if($persyaratan->files == "F3. SURAT KETERANGAN JANDA DUDA"){
+                                        ?>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI">
+                                            <span class="custom-control-label">F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F2. SPTB">
+                                            <span class="custom-control-label">F2. SPTB</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F3. SURAT KETERANGAN JANDA DUDA" checked="">
+                                            <span class="custom-control-label">F3. SURAT KETERANGAN JANDA DUDA</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH">
+                                            <span class="custom-control-label">F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F5. KETERANGAN AHLI WARIS KOREKSI C110">
+                                            <span class="custom-control-label">F5. KETERANGAN AHLI WARIS KOREKSI C110</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI">
+                                            <span class="custom-control-label">F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F7. SURAT KETERANGAN PENGUBURAN">
+                                            <span class="custom-control-label">F7. SURAT KETERANGAN PENGUBURAN</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH">
+                                            <span class="custom-control-label">F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH</span>
+                                        </label>
+                                        <?php 
+                                            }else if($persyaratan->files == "F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH"){
+                                        ?>
+                                       <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI">
+                                            <span class="custom-control-label">F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F2. SPTB">
+                                            <span class="custom-control-label">F2. SPTB</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F3. SURAT KETERANGAN JANDA DUDA">
+                                            <span class="custom-control-label">F3. SURAT KETERANGAN JANDA DUDA</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH" checked="">
+                                            <span class="custom-control-label">F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F5. KETERANGAN AHLI WARIS KOREKSI C110">
+                                            <span class="custom-control-label">F5. KETERANGAN AHLI WARIS KOREKSI C110</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI">
+                                            <span class="custom-control-label">F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F7. SURAT KETERANGAN PENGUBURAN">
+                                            <span class="custom-control-label">F7. SURAT KETERANGAN PENGUBURAN</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH">
+                                            <span class="custom-control-label">F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH</span>
+                                        </label>
+                                        <?php 
+                                            }else if($persyaratan->files == "F5. KETERANGAN AHLI WARIS KOREKSI C110"){
+                                        ?>
+                                       <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI">
+                                            <span class="custom-control-label">F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F2. SPTB">
+                                            <span class="custom-control-label">F2. SPTB</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F3. SURAT KETERANGAN JANDA DUDA">
+                                            <span class="custom-control-label">F3. SURAT KETERANGAN JANDA DUDA</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH">
+                                            <span class="custom-control-label">F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F5. KETERANGAN AHLI WARIS KOREKSI C110" checked="">
+                                            <span class="custom-control-label">F5. KETERANGAN AHLI WARIS KOREKSI C110</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI">
+                                            <span class="custom-control-label">F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F7. SURAT KETERANGAN PENGUBURAN">
+                                            <span class="custom-control-label">F7. SURAT KETERANGAN PENGUBURAN</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH">
+                                            <span class="custom-control-label">F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH</span>
+                                        </label>
+                                        <?php 
+                                            }else if($persyaratan->files == "F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI"){
+                                        ?>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI">
+                                            <span class="custom-control-label">F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F2. SPTB">
+                                            <span class="custom-control-label">F2. SPTB</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F3. SURAT KETERANGAN JANDA DUDA">
+                                            <span class="custom-control-label">F3. SURAT KETERANGAN JANDA DUDA</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH">
+                                            <span class="custom-control-label">F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F5. KETERANGAN AHLI WARIS KOREKSI C110">
+                                            <span class="custom-control-label">F5. KETERANGAN AHLI WARIS KOREKSI C110</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI" checked="">
+                                            <span class="custom-control-label">F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F7. SURAT KETERANGAN PENGUBURAN">
+                                            <span class="custom-control-label">F7. SURAT KETERANGAN PENGUBURAN</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH">
+                                            <span class="custom-control-label">F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH</span>
+                                        </label>
+                                        <?php 
+                                            }else if($persyaratan->files == "F7. SURAT KETERANGAN PENGUBURAN"){
+                                        ?>
+                                       <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI">
+                                            <span class="custom-control-label">F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F2. SPTB">
+                                            <span class="custom-control-label">F2. SPTB</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F3. SURAT KETERANGAN JANDA DUDA">
+                                            <span class="custom-control-label">F3. SURAT KETERANGAN JANDA DUDA</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH">
+                                            <span class="custom-control-label">F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F5. KETERANGAN AHLI WARIS KOREKSI C110">
+                                            <span class="custom-control-label">F5. KETERANGAN AHLI WARIS KOREKSI C110</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI">
+                                            <span class="custom-control-label">F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F7. SURAT KETERANGAN PENGUBURAN" checked="">
+                                            <span class="custom-control-label">F7. SURAT KETERANGAN PENGUBURAN</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH">
+                                            <span class="custom-control-label">F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH</span>
+                                        </label>
+                                        <?php 
+                                            }else if($persyaratan->files == "F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH"){
+                                        ?>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI">
+                                            <span class="custom-control-label">F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F2. SPTB">
+                                            <span class="custom-control-label">F2. SPTB</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F3. SURAT KETERANGAN JANDA DUDA">
+                                            <span class="custom-control-label">F3. SURAT KETERANGAN JANDA DUDA</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH">
+                                            <span class="custom-control-label">F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F5. KETERANGAN AHLI WARIS KOREKSI C110">
+                                            <span class="custom-control-label">F5. KETERANGAN AHLI WARIS KOREKSI C110</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI">
+                                            <span class="custom-control-label">F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F7. SURAT KETERANGAN PENGUBURAN">
+                                            <span class="custom-control-label">F7. SURAT KETERANGAN PENGUBURAN</span>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="files" class="custom-control-input" value="F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH" checked="">
+                                            <span class="custom-control-label">F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH</span>
+                                        </label>
+                                        <?php
+                                            }
+                                        ?>
                                     </div>
-
-                                    <div class="form-group">
-                                        <label>Persyaratan</label>
-                                        <textarea class="form-control" name="persyaratan"></textarea>
-                                    </div> -->
-
-                                    <!-- <div class="form-group">
-                                        <label>Status</label>
-                                        <select class="form-control" name="status" id="status" required>
-                                            <option value="0">Pilih Status</option>
-                                            <option value="1">Aktif</option>
-                                            <option value="2">Tidak Aktif</option>
-                                        </select>
-                                    </div> -->
 
                                     <div class="float-left">
                                         <button type="submit" class="btn btn-space btn-primary" id="save_persyaratan">Simpan</button>

@@ -64,9 +64,9 @@
                                 <?php } ?>
                                 <form method="post" action="<?php echo base_url('persyaratan/processAdd');?>">
                                     <div class="form-group">
-                                        <label>Jenis Formulir</label>
+                                        <label>Jenis Klaim</label>
                                         <select class="form-control" name="id_jenis" id="jenis_formulir" required>
-                                            <option value="0">Pilih Jenis Formulir</option>
+                                            <option value="0">Pilih Jenis Klaim</option>
                                             <?php
                                                 if(!empty($jenis_formulir)){
                                                     foreach ($jenis_formulir as $key => $value) {

@@ -28,12 +28,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Jenis Klaim</h2>
+                            <h2 class="pageheader-title">Jenis Klim</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Jenis Klaim</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Jenis Klim</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -50,13 +50,13 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="float-left" style="margin-top: 10px;">Lihat Data Jenis Klaim</h3>
+                                <h3 class="float-left" style="margin-top: 10px;">Lihat Data Jenis Klim</h3>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped table-bordered first">
                                     <tbody>
                                         <tr>
-                                            <th>Jenis Klaim</th>
+                                            <th>Jenis Klim</th>
                                             <td><?php echo $jenis_formulir->jenis_formulir;?></td>
                                         </tr>
                                         <tr>

@@ -25,10 +25,10 @@
 			);
 			$res = $this->global_model->insertData('jenis_formulir', $data);
 			if($res == false){
-				$this->session->set_flashdata('error', 'Data jenis klaim gagal disimpan');
+				$this->session->set_flashdata('error', 'Data jenis klim gagal disimpan');
 				return redirect(base_url() . 'jenis_formulir/add');
 			}
-			$this->session->set_flashdata('success', 'Data jenis klaim berhasil disimpan');
+			$this->session->set_flashdata('success', 'Data jenis klim berhasil disimpan');
 			return redirect(base_url() . 'jenis_formulir/index');
 		}
 
@@ -58,10 +58,10 @@
 			);
 			$res = $this->global_model->updateData('jenis_formulir', $condition, $data);
 			if($res == false){
-				$this->session->set_flashdata('error', 'Data jenis klaim gagal diubah');
+				$this->session->set_flashdata('error', 'Data jenis klim gagal diubah');
 				return redirect(base_url() . 'jenis_formulir/edit/' . $id);
 			}
-			$this->session->set_flashdata('success', 'Data jenis klaim berhasil diubah');
+			$this->session->set_flashdata('success', 'Data jenis klim berhasil diubah');
 			return redirect(base_url() . 'jenis_formulir/index');
 		}
 
@@ -71,10 +71,10 @@
 			);
 			$res = $this->global_model->deleteData('jenis_formulir', $condition);
 			if($res == false){
-				$this->session->set_flashdata('error', 'Data jenis klaim gagal dihapus');
+				$this->session->set_flashdata('error', 'Data jenis klim gagal dihapus');
 				return redirect(base_url() . 'jenis_formulir/index/' . $id);
 			}
-			$this->session->set_flashdata('success', 'Data jenis klaim berhasil dihapus');
+			$this->session->set_flashdata('success', 'Data jenis klim berhasil dihapus');
 			return redirect(base_url() . 'jenis_formulir/index');
 		}
 	}

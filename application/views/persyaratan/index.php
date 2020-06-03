@@ -70,7 +70,7 @@
                                 <table class="table table-striped table-bordered first" id="example">
                                     <thead>
                                         <tr>
-                                            <th>Jenis Klaim</th>
+                                            <th>Jenis Klim</th>
                                             <th>Nama Persyaratan</th>
                                             <th>Status</th>
                                             <th></th>

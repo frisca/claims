@@ -43,7 +43,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('jenis_formulir/index');?>">
-                            <i class="fa fa-list-alt"></i>Jenis Klaim
+                            <i class="fa fa-list-alt"></i>Jenis Klim
                         </a>
                     </li>
                     <li class="nav-item">

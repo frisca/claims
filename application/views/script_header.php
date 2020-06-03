@@ -19,7 +19,7 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckfinder/ckfinder.js"></script>
 
-    <title>Sistem Pakar Pengajuan Klaim</title>
+    <title>Pengajuan Klim Asuransi Online PT Taspen</title>
 </head>
 
 <body>

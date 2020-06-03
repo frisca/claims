@@ -56,7 +56,7 @@
                                 <table class="table table-striped table-bordered first">
                                     <tbody>
                                         <tr>
-                                            <th>Jenis Klaim</th>
+                                            <th>Jenis Klim</th>
                                             <td>
                                                 <?php 
                                                     foreach ($jenis_formulir as $key => $value) {

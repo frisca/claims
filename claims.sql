@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2020 at 05:53 PM
+-- Generation Time: Jun 13, 2020 at 05:56 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -38,15 +38,17 @@ CREATE TABLE `detail_pengguna` (
   `kelurahan` varchar(200) NOT NULL,
   `no_tlp` varchar(20) NOT NULL,
   `no_ktp` varchar(50) NOT NULL,
-  `id_pengguna` int(11) NOT NULL
+  `id_pengguna` int(11) NOT NULL,
+  `tempt_lahir` varchar(50) NOT NULL,
+  `tgl_lahir` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `detail_pengguna`
 --
 
-INSERT INTO `detail_pengguna` (`id_detail_pengguna`, `alamat`, `kode_pos`, `provinsi`, `kabupaten`, `kecamatan`, `kelurahan`, `no_tlp`, `no_ktp`, `id_pengguna`) VALUES
-(4, 't', '1', 't', 't', 't', 't', '1', '1', 9);
+INSERT INTO `detail_pengguna` (`id_detail_pengguna`, `alamat`, `kode_pos`, `provinsi`, `kabupaten`, `kecamatan`, `kelurahan`, `no_tlp`, `no_ktp`, `id_pengguna`, `tempt_lahir`, `tgl_lahir`) VALUES
+(4, 't', '1', 't', 't', 't', 't', '1', '1', 9, 'testing', '1981-05-25');
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,10 @@ CREATE TABLE `detail_persyaratan` (
 --
 
 INSERT INTO `detail_persyaratan` (`id_detail_persyaratan`, `urutan`, `persyaratan`, `id_persyaratan`, `files`) VALUES
-(2, 1, 'MENGISI FORMULIR SPP ', 2, 'F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI');
+(2, 1, 'MENGISI FORMULIR SPP ', 2, 'F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI'),
+(5, 2, 'MENGISI FORMULIR KUTIPAN PERICIAN PENERIMAAN GAJI (KPPG)', 2, 'F2. SPTB'),
+(6, 3, 'FOTOCOPY SURAT NIKAH LEGALISIR KUA / CAMAT + ASLI', 2, ''),
+(7, 4, 'FOTOCOPY SURAT KEMATIAN LEGALISIR LURAH + ASLI', 2, '');
 
 -- --------------------------------------------------------
 
@@ -159,7 +164,7 @@ CREATE TABLE `jenis_formulir` (
 
 INSERT INTO `jenis_formulir` (`id_jenis`, `jenis_formulir`, `dibuat_oleh`, `dibuat_tanggal`, `diubah_oleh`, `diubah_tanggal`, `status`) VALUES
 (3, 'B210', 1, '2020-05-01', 0, '0000-00-00', 1),
-(4, 'A210', 1, '2020-05-15', 0, '0000-00-00', 1),
+(4, 'A210 - ASURANSI KEMATIAN ISTERI / SUAMI / ANAK PESERTA AKTIF', 1, '2020-05-15', 0, '0000-00-00', 1),
 (5, 'B110 & SP4A', 1, '2020-05-20', 1, '2020-05-30', 1),
 (6, 'C110', 1, '2020-05-20', 0, '0000-00-00', 1),
 (7, 'D110', 1, '2020-05-20', 0, '0000-00-00', 0),
@@ -325,13 +330,13 @@ ALTER TABLE `detail_pengguna`
 -- AUTO_INCREMENT for table `detail_persyaratan`
 --
 ALTER TABLE `detail_persyaratan`
-  MODIFY `id_detail_persyaratan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_detail_persyaratan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `formulir`
 --
 ALTER TABLE `formulir`
-  MODIFY `id_formulir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_formulir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `jawaban_pertanyaan`

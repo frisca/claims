@@ -80,7 +80,7 @@
                                             <td><?php echo $value->jenis_formulir;?></td>
                                             <td><?php echo $value->nama_persyaratan;?></td>
                                             <td>
-                                                <a href="<?php echo base_url('formulir/list_persyaratan/' . $value->id_jenis);?>">
+                                                <a href="<?php echo base_url('formulir/list_persyaratan/' . $value->id_formulir);?>">
                                                     <button class="btn btn-info">
                                                         <i class="fas fa-eye"></i>
                                                     </button>

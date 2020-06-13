@@ -32,648 +32,732 @@
                     $('.jenis_formulir').css('display', 'none');
                 }
             });
-            $('.yes_1').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log(data.id_jenis);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
+            // $('.yes_1').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log(data.id_jenis);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
 
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_2').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_3').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_4').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_5').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_6').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('id jenis: ', data.id_jenis);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_7').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_8').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_9').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_10').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_11').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_12').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.yes_13').click(function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
-                        dataType: 'json',
-                        success: function(response){
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_2').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_3').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_4').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_5').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_6').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('id jenis: ', data.id_jenis);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_7').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_8').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_9').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_10').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_11').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_12').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.yes_13').click(function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+
+            var array_counts = [];
+            var counts = "<?php echo $total;?>";
+            for (var i=1; i<=counts; i++) {
+                array_counts.push(i);
+            }
             
+            $.each(array_counts, function(id,val){
+                $('.yes_' + val).click(function(){
+                    var pertanyaanid = $(this).attr('pertanyaanid');
+                    var jawaban = $(this).val();
+                    $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+                        if(data.id_jenis != null){
+                            $("#id_jenis").val(data.id_jenis);
+                            $('#submit').css('display', 'block');
+                        }else{
+                            $("#id_jenis").val('');
+                            $('#submit').css('display', 'none');
+                        }
+                        $('.urutan_' + data.urutan).css('display', 'block');
+                        $.ajax({
+                            url:'<?=base_url()?>home/getJawaban',
+                            method: 'post',
+                            data: {pertanyaanid: pertanyaanid, jawaban: "TIDAK"},
+                            dataType: 'json',
+                            success: function(response){
+                                $('.urutan_' + response.urutan).css('display', 'none');
+                            }
+                        });
+                    }, 'json');
+                });
 
-            $('.no_1').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
+                $('.no_' + val).on('change',function(){
+                    var pertanyaanid = $(this).attr('pertanyaanid');
+                    var jawaban = $(this).val();
+                    console.log('jawaban: ', jawaban);
+                    $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+                        console.log('data: ', data);
+                        if(data.id_jenis != null){
+                            $("#id_jenis").val(data.id_jenis);
+                            $('#submit').css('display', 'block');
+                        }else{
+                            $("#id_jenis").val('');
+                            $('#submit').css('display', 'none');
                         }
-                    });
-                }, 'json');
+                        $('.urutan_' + data.urutan).css('display', 'block');
+                        $.ajax({
+                            url:'<?=base_url()?>home/getJawaban',
+                            method: 'post',
+                            data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+                            dataType: 'json',
+                            success: function(response){
+                                console.log('response: ', response);
+                                $('.urutan_' + response.urutan).css('display', 'none');
+                            }
+                        });
+                    }, 'json');
+                });
             });
-            $('.no_2').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.no_3').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.no_4').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.no_5').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.no_6').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.no_7').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.no_8').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.no_9').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.no_10').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.no_11').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.no_12').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
-            $('.no_13').on('change',function(){
-                var pertanyaanid = $(this).attr('pertanyaanid');
-                var jawaban = $(this).val();
-                console.log('jawaban: ', jawaban);
-                $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
-                    console.log('data: ', data);
-                    if(data.id_jenis != null){
-                        $("#id_jenis").val(data.id_jenis);
-                        $('#submit').css('display', 'block');
-                    }else{
-                        $("#id_jenis").val('');
-                        $('#submit').css('display', 'none');
-                    }
-                    $('.urutan_' + data.urutan).css('display', 'block');
-                    $.ajax({
-                        url:'<?=base_url()?>home/getJawaban',
-                        method: 'post',
-                        data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
-                        dataType: 'json',
-                        success: function(response){
-                            console.log('response: ', response);
-                            $('.urutan_' + response.urutan).css('display', 'none');
-                        }
-                    });
-                }, 'json');
-            });
+            //  $('.no_1').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+
+            // $('.no_1').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_2').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_3').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_4').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_5').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_6').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_7').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_8').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_9').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_10').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_11').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_12').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
+            // $('.no_13').on('change',function(){
+            //     var pertanyaanid = $(this).attr('pertanyaanid');
+            //     var jawaban = $(this).val();
+            //     console.log('jawaban: ', jawaban);
+            //     $.post( "<?php echo base_url('home/getJawaban');?>", { pertanyaanid: pertanyaanid, jawaban : jawaban}, function(data){
+            //         console.log('data: ', data);
+            //         if(data.id_jenis != null){
+            //             $("#id_jenis").val(data.id_jenis);
+            //             $('#submit').css('display', 'block');
+            //         }else{
+            //             $("#id_jenis").val('');
+            //             $('#submit').css('display', 'none');
+            //         }
+            //         $('.urutan_' + data.urutan).css('display', 'block');
+            //         $.ajax({
+            //             url:'<?=base_url()?>home/getJawaban',
+            //             method: 'post',
+            //             data: {pertanyaanid: pertanyaanid, jawaban: "YA"},
+            //             dataType: 'json',
+            //             success: function(response){
+            //                 console.log('response: ', response);
+            //                 $('.urutan_' + response.urutan).css('display', 'none');
+            //             }
+            //         });
+            //     }, 'json');
+            // });
 
             $('#example').DataTable();
             $('#save_persyaratan').click(function(){

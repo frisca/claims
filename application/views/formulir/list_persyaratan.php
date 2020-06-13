@@ -69,12 +69,26 @@
                                         if($value->urutan == 1){
                                 ?>
                                 <div>
-                                    <p><?php echo $value->urutan;?> . <?php echo $value->persyaratan;?></p>
+                                    <p>
+                                        <?php echo $value->urutan;?> . <?php echo $value->persyaratan;?>. 
+                                        (<a href="<?php echo base_url('formulir/downloadFormulir/' . $formulir->id_formulir);?>"> Download Formulir</a> )      
+                                    </p>
                                 </div>
                                 <?php
                                         }else{
                                 ?>
-                                
+                                <div>
+                                    <p>
+                                        <?php echo $value->urutan;?> . <?php echo $value->persyaratan;?>.
+                                        <?php
+                                            if($value->files != ""){
+                                        ?>
+                                        (<a href="<?php echo base_url('formulir/' . $value->files . '.pdf');?>"> Download Formulir</a> )
+                                        <?php
+                                            }
+                                        ?>      
+                                    </p>
+                                </div>
                                 <?php
                                         }
                                     }

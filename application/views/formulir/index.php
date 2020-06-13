@@ -75,6 +75,16 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label>Tempat Lahir</label>
+                                        <input type="text" name="tempt_lahir" class="form-control" id="tempt_lahir" required value="<?php echo $det_pengguna->tempt_lahir;?>">
+                                    </div>
+
+                                     <div class="form-group">
+                                        <label>Tanggal Lahir</label>
+                                        <input type="text" name="tgl_lahir" class="form-control" id="tgl_lahir" required value="<?php echo date('d-m-Y', strtotime($det_pengguna->tgl_lahir));?>">
+                                    </div>
+
+                                    <div class="form-group">
                                         <label>Alamat</label>
                                         <textarea class="form-control" name="alamat"><?php echo $det_pengguna->alamat;?></textarea>
                                     </div>

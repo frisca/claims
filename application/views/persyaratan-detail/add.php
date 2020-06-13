@@ -77,42 +77,42 @@
                                     <div class="form-group">
                                         <label>File Formulir</label>
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" name="files" class="custom-control-input">
+                                            <input type="radio" name="files" class="custom-control-input" value="F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI">
                                             <span class="custom-control-label">F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI</span>
                                         </label>
 
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" name="files" class="custom-control-input">
+                                            <input type="radio" name="files" class="custom-control-input" value="F2. SPTB">
                                             <span class="custom-control-label">F2. SPTB</span>
                                         </label>
 
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" name="files" class="custom-control-input">
+                                            <input type="radio" name="files" class="custom-control-input" value="F3. SURAT KETERANGAN JANDA DUDA">
                                             <span class="custom-control-label">F3. SURAT KETERANGAN JANDA DUDA</span>
                                         </label>
 
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" name="files" class="custom-control-input">
+                                            <input type="radio" name="files" class="custom-control-input" value="F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH">
                                             <span class="custom-control-label">F4. SURAT KETERANGAN KUASA dari ahli waris UDW PUNAH</span>
                                         </label>
 
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" name="files" class="custom-control-input">
+                                            <input type="radio" name="files" class="custom-control-input" value="F5. KETERANGAN AHLI WARIS KOREKSI C110">
                                             <span class="custom-control-label">F5. KETERANGAN AHLI WARIS KOREKSI C110</span>
                                         </label>
 
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" name="files" class="custom-control-input">
+                                            <input type="radio" name="files" class="custom-control-input" value="F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI">
                                             <span class="custom-control-label">F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI</span>
                                         </label>
 
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" name="files" class="custom-control-input">
+                                            <input type="radio" name="files" class="custom-control-input" value="F7. SURAT KETERANGAN PENGUBURAN">
                                             <span class="custom-control-label">F7. SURAT KETERANGAN PENGUBURAN</span>
                                         </label>
 
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" name="files" class="custom-control-input">
+                                            <input type="radio" name="files" class="custom-control-input" value="F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH">
                                             <span class="custom-control-label">F8. SURAT KETERANGAN BELUM BEKERJA DAN BELUM MENIKAH</span>
                                         </label>
                                     </div>

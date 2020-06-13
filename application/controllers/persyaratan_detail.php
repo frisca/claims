@@ -23,7 +23,7 @@
 				'urutan' => $this->input->post('urutan'),
 				'persyaratan' => $this->input->post('persyaratan'),
 				'id_persyaratan' => $id,
-				'files' => $this->input->post('files')
+				'files' => empty($this->input->post('files')) ? "" : $this->input->post('files')
 				// 'persyaratan' => $this->input->post('persyaratan')
 			);
 			$res = $this->global_model->insertData('detail_persyaratan', $data);
@@ -43,7 +43,7 @@
 			$this->load->view('persyaratan-detail/detail', $data);
 		}
 
-		public function edit($persyaratan, $persyaratan_detail){
+		public function edit($persyaratan_detail, $persyaratan){
 			$condition = array(
 				'id_detail_persyaratan' => $persyaratan_detail
 			);
@@ -51,14 +51,14 @@
 			$this->load->view('persyaratan-detail/edit', $data);
 		}
 
-		public function processEdit($persyaratan, $persyaratan_detail){
+		public function processEdit($persyaratan_detail, $persyaratan){
 			$condition = array(
 				'id_detail_persyaratan' => $persyaratan_detail
 			);
 			$data = array(
 				'urutan' => $this->input->post('urutan'),
 				'persyaratan' => $this->input->post('persyaratan'),
-				'files' => $this->input->post('files')
+				'files' => empty($this->input->post('files')) ? "" : $this->input->post('files')
 			);
 			$res = $this->global_model->updateData('detail_persyaratan', $condition, $data);
 			if($res == false){
@@ -69,7 +69,7 @@
 			return redirect(base_url() . 'persyaratan_detail/lists/' . $persyaratan);
 		}
 
-		public function delete($persyaratan, $persyaratan_detail){
+		public function delete($persyaratan_detail, $persyaratan){
 			$condition = array(
 				'id_detail_persyaratan' => $persyaratan_detail
 			);

@@ -336,7 +336,8 @@
             // });
 
             var array_counts = [];
-            var counts = "<?php echo $total;?>";
+            var counts = "<?php if(!empty($total)){ echo $total; }?>";
+            console.log(counts);
             for (var i=1; i<=counts; i++) {
                 array_counts.push(i);
             }
@@ -775,7 +776,17 @@
                 }
             });
             CKEDITOR.replace('edi');
-        } );
+        });
+
+        function getNotif(){
+			$.getJSON("<?php echo base_url('formulir/getNotif');?>", function(data){
+				console.log('response: ', data);
+                $('.list-group').append('<a href="#" class="list-group-item list-group-item-action">' +
+                '</a>');
+			});
+		}
+
+        setInterval(function(){getNotif()}, 1000);
     </script>
 </body>
  

@@ -27,5 +27,15 @@
 					left join pengguna pg on pg.id_pengguna = f.id_pengguna order by id_formulir desc limit 1";
 			return $this->db->query($query);
 		}
+
+		public function getNotif(){
+			$query = "SELECT f.id_formulir, f.id_jenis_formulir, f.id_pengguna, f.id_detail_pengguna, peg.nama,
+					jf.jenis_formulir FROM formulir f 
+				    left join jenis_formulir jf on jf.id_jenis = f.id_jenis_formulir
+					left join persyaratan p on p.id_jenis = jf.id_jenis 
+					left join pengguna peg on peg.id_pengguna = f.id_pengguna
+					where f.status = 0 order by f.id_formulir desc limit 3";
+			return $this->db->query($query);
+		}
 	}
 ?>

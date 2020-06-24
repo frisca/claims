@@ -91,6 +91,11 @@
 		}
 
 		public function add(){
+			$this->load->library('CKEditor');
+			$this->load->library('CKFinder');
+
+			//Add Ckfinder to Ckeditor
+			$this->ckfinder->SetupCKEditor($this->ckeditor,'../../assets/ckfinder/');
 			$condition = array('status' => 1);
 			$data['jenis_formulir'] = $this->global_model->getDataByCondition('jenis_formulir', $condition)->result();
 			$this->load->view('persyaratan/add', $data);

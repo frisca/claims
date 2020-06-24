@@ -70,7 +70,7 @@
 
                                     <div class="form-group">
                                         <label>Pertanyaan</label>
-                                        <textarea class="form-control" rows="10" cols="10" name="pertanyaan"><?php echo $pertanyaan->pertanyaan;?></textarea>
+                                        <textarea class="form-control" rows="10" cols="10" name="pertanyaan" id="edi"><?php echo $pertanyaan->pertanyaan;?></textarea>
                                     </div>
 
                                     <div class="form-group">

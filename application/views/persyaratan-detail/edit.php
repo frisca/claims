@@ -71,7 +71,7 @@
 
                                     <div class="form-group">
                                         <label>Persyaratan</label>
-                                        <textarea class="form-control" name="persyaratan"><?php echo $persyaratan->persyaratan;?></textarea>
+                                        <textarea id="edi" class="form-control" name="persyaratan"><?php echo $persyaratan->persyaratan;?></textarea>
                                     </div>
                                     
                                     <div class="form-group">

@@ -357,5 +357,10 @@
 			$tamp = str_replace("%20", " ", $link);				
 			force_download('formulir/' . $tamp,NULL);
 		}
+
+		public function getNotif(){
+			$data = $this->formulir_model->getNotif()->result();
+			echo json_encode($data);
+		}
 	}
 ?>

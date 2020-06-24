@@ -71,7 +71,7 @@
 
                                     <div class="form-group">
                                         <label>Persyaratan</label>
-                                        <textarea class="form-control" name="persyaratan"></textarea>
+                                        <textarea class="form-control" name="persyaratan" id="edi"></textarea>
                                     </div>
                                     
                                     <div class="form-group">

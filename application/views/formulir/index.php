@@ -76,52 +76,52 @@
 
                                     <div class="form-group">
                                         <label>Tempat Lahir</label>
-                                        <input type="text" name="tempt_lahir" class="form-control" id="tempt_lahir" required value="<?php echo $det_pengguna->tempt_lahir;?>">
+                                        <input type="text" name="tempt_lahir" class="form-control" id="tempt_lahir" required value="<?php if(!empty($det_pengguna->tempt_lahir)){ echo $det_pengguna->tempt_lahir;}?>">
                                     </div>
 
                                      <div class="form-group">
                                         <label>Tanggal Lahir</label>
-                                        <input type="text" name="tgl_lahir" class="form-control" id="tgl_lahir" required value="<?php echo date('d-m-Y', strtotime($det_pengguna->tgl_lahir));?>">
+                                        <input type="text" name="tgl_lahir" class="form-control" id="tgl_lahir" required value="<?php if(!empty($det_pengguna->tgl_lahir)){ echo date('d-m-Y', strtotime($det_pengguna->tgl_lahir));}?>">
                                     </div>
 
                                     <div class="form-group">
                                         <label>Alamat</label>
-                                        <textarea class="form-control" name="alamat"><?php echo $det_pengguna->alamat;?></textarea>
+                                        <textarea class="form-control" name="alamat"><?php if(!empty($det_pengguna->alamat)){ echo $det_pengguna->alamat;}?></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Provinsi</label>
-                                        <input type="text" name="provinsi" class="form-control" id="provinsi" value="<?php echo $det_pengguna->provinsi;?>" required>
+                                        <input type="text" name="provinsi" class="form-control" id="provinsi" value="<?php if(!empty($det_pengguna->alamat)){ echo $det_pengguna->provinsi;}?>" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Kabupaten</label>
-                                        <input type="text" name="kabupaten" class="form-control" id="kabupaten" value="<?php echo $det_pengguna->kabupaten;?>" required>
+                                        <input type="text" name="kabupaten" class="form-control" id="kabupaten" value="<?php if(!empty($det_pengguna->kabupaten)){ echo $det_pengguna->kabupaten;}?>" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Kecamatan</label>
-                                        <input type="text" name="kecamatan" class="form-control" id="kecamatan" value="<?php echo $det_pengguna->kecamatan;?>" required>
+                                        <input type="text" name="kecamatan" class="form-control" id="kecamatan" value="<?php if(!empty($det_pengguna->kecamatan)){echo $det_pengguna->kecamatan;}?>" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Kelurahan</label>
-                                        <input type="text" name="kelurahan" class="form-control" id="kelurahan" value="<?php echo $det_pengguna->kelurahan;?>" required>
+                                        <input type="text" name="kelurahan" class="form-control" id="kelurahan" value="<?php if(!empty($det_pengguna->kelurahan)){ echo $det_pengguna->kelurahan;}?>" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Kode Pos</label>
-                                        <input type="text" name="kode_pos" class="form-control" value="<?php echo $det_pengguna->kode_pos;?>" required>
+                                        <input type="text" name="kode_pos" class="form-control" value="<?php if(!empty($det_pengguna->kode_pos)){echo $det_pengguna->kode_pos;}?>" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label>No Telepon</label>
-                                        <input type="text" name="no_tlp" class="form-control" id="no_tlp" value="<?php echo $det_pengguna->no_tlp;?>" required>
+                                        <input type="text" name="no_tlp" class="form-control" id="no_tlp" value="<?php if(!empty($det_pengguna->no_tlp)){echo $det_pengguna->no_tlp;}?>" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label>No KTP</label>
-                                        <input type="text" name="no_ktp" class="form-control" id="no_ktp" value="<?php echo $det_pengguna->no_ktp;?>" required>
+                                        <input type="text" name="no_ktp" class="form-control" id="no_ktp" value="<?php if(!empty($det_pengguna->no_ktp)){echo $det_pengguna->no_ktp;}?>" required>
                                     </div>
 
                                     <div class="float-left">

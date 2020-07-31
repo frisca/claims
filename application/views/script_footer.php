@@ -781,8 +781,21 @@
         function getNotif(){
 			$.getJSON("<?php echo base_url('formulir/getNotif');?>", function(data){
 				console.log('response: ', data);
-                $('.list-group').append('<a href="#" class="list-group-item list-group-item-action">' +
-                '</a>');
+                // $('.list-group').append('<a href="#" class="list-group-item list-group-item-action">' +
+                // '</a>');
+                if(data.notif.length == 1){
+                    // $('.list-footer').css('margin-top', '-179px');
+                    $.each(data.notif, function( i, val ) {
+                        $('.list-group').html('<a href="#" class="list-group-item list-group-item-action">' +
+                            '<div class="notification-info">' +
+                                '<div class="notification-list-user-img"><img src="assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>' +
+                                '<div class="notification-list-user-block"><span class="notification-list-user-name">'+val.nama+'</span>is klim ' + val.jenis_formulir + 
+                            '</div>' +
+                            '</div>' +
+                        '</a>');
+                    });
+                    $('.list-footer').css('margin-top', '-161px');
+                }
 			});
 		}
 

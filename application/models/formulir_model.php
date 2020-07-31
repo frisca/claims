@@ -1,11 +1,13 @@
 <?php
 	class Formulir_Model extends CI_Model
 	{
-		public function getListFormulir($id){
-			$query = "SELECT f.*, p.*, jf.* FROM formulir f 
+		public function getListFormulirById($id){
+			$query = "SELECT f.*, p.*, jf.*, u.* FROM formulir f 
 				    left join jenis_formulir jf on jf.id_jenis = f.id_jenis_formulir
 					left join persyaratan p on p.id_jenis = jf.id_jenis
-					where f.id_pengguna = " . $id;
+					left join detail_pengguna dp on dp.id_detail_pengguna = f.id_detail_pengguna
+					left join pengguna u on u.id_pengguna = dp.id_pengguna
+					where f.status = 1 and f.id_pengguna = " . $id;
 			return $this->db->query($query);
 		}
 
@@ -34,7 +36,14 @@
 				    left join jenis_formulir jf on jf.id_jenis = f.id_jenis_formulir
 					left join persyaratan p on p.id_jenis = jf.id_jenis 
 					left join pengguna peg on peg.id_pengguna = f.id_pengguna
-					where f.status = 0 order by f.id_formulir desc limit 3";
+					where f.status = 1 order by f.id_formulir desc limit 3";
+			return $this->db->query($query);
+		}
+
+		public function getListFormulir(){
+			$query = "SELECT f.*, p.*, jf.* FROM formulir f 
+				    left join jenis_formulir jf on jf.id_jenis = f.id_jenis_formulir
+					left join persyaratan p on p.id_jenis = jf.id_jenis";
 			return $this->db->query($query);
 		}
 	}

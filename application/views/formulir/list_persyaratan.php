@@ -50,9 +50,12 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="float-left" style="margin-top: 10px;"><?php echo $syarat->nama_persyaratan;?></h3>
+                                <h4 class="float-left"><?php echo $syarat->nama_persyaratan;?></h4>
                             </div>
                             <div class="card-body">
+                            <div>
+                                Silahkan upload berkas / dokumen yang telah dipersiapkan.
+                            </div>
                                 <?php if($this->session->flashdata('success') != ""){ ?>
                                 <div class="alert alert-success alert-dismissible">
                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -96,11 +99,53 @@
                                 <div>
                                 </div>
                             </div>
-                            <div class="card-footer">
+                            <!-- <div class="card-footer">
                                 <a href="<?php echo base_url('home/index');?>">
                                     <button type="button" class="btn btn-space btn-default">Kembali</button>
                                 </a>
+                            </div> -->
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="float-left">UPLOAD BERKAS / DOKUMEN</h4>
                             </div>
+                            <form method="post" action="<?php echo base_url('formulir/uploadBerkas/' . $formulir->id_formulir);?>" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        Silahkan upload berkas / dokumen yang telah Anda persiapkan sesuai dengan persyaratan diatas.
+                                    </div>
+                                    <?php
+                                        $key = 1;
+                                        foreach($persyaratan as $value)
+                                        {
+                                            $tamp = explode(' ', $value->persyaratan);
+                                            if($tamp[0] == "MENGISI"){
+                                                $label = str_replace('MENGISI ', '', trim($value->persyaratan)); 
+                                    ?>
+                                        <div class="form-group">
+                                            <label><?php echo $key . '. ' . $label . '*';?></label>
+                                            <input type="file" class="form-control" name="userfile[]" multiple required/>
+                                        </div>
+                                    <?php
+                                            }else{
+                                    ?>
+                                        <div class="form-group">
+                                            <label><?php echo $key . '. ' . $value->persyaratan . '*';?></label>
+                                            <input type="file" class="form-control" name="userfile[]" multiple required/>
+                                        </div>
+                                    <?php
+                                            }
+                                            $key++;
+                                        }
+                                    ?>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-space btn-primary">Simpan</button>
+                                    <a href="<?php echo base_url('home/index');?>">
+                                        <button type="button" class="btn btn-space btn-secondary">Kembali</button>
+                                    </a>
+                                </div>
+                            </form>
                         </div>
                         <!-- <button class="btn float-right btn-primary">Tambah</button> -->
                     </div>

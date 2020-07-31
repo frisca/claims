@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 21, 2020 at 03:21 PM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 5.6.36
+-- Host: localhost
+-- Waktu pembuatan: 31 Jul 2020 pada 11.19
+-- Versi server: 10.1.37-MariaDB
+-- Versi PHP: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_pengguna`
+-- Struktur dari tabel `detail_pengguna`
 --
 
 CREATE TABLE `detail_pengguna` (
@@ -44,16 +44,21 @@ CREATE TABLE `detail_pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `detail_pengguna`
+-- Dumping data untuk tabel `detail_pengguna`
 --
 
 INSERT INTO `detail_pengguna` (`id_detail_pengguna`, `alamat`, `kode_pos`, `provinsi`, `kabupaten`, `kecamatan`, `kelurahan`, `no_tlp`, `no_ktp`, `id_pengguna`, `tempt_lahir`, `tgl_lahir`) VALUES
-(4, 't', '1', 't', 't', 't', 't', '1', '1', 9, 'testing', '1981-05-25');
+(4, 't', '1', 't', 't', 't', 't', '1', '1', 9, 'testing', '1981-05-25'),
+(5, 'Depok', '20226', 'Deli Serdang', 'Medan', 'Cilodong', 'Jatimulya', '08123847482293', '320928827300012', 11, 'Sigotom', '1993-10-19'),
+(6, 'Jl.Raya Semanggi, RT/RW 03/08', '20226', 'Jawa Barat', 'Kalimulya', 'Cilodong', 'Deli', '08123847482293', '32048595758393749', 12, 'Sigotom', '1993-10-19'),
+(7, 'Jl.Raya Semanggi, RT/RW 03/08', '20226', 'Jawa Barat', 'Kalimulya', 'Cilodong', 'Deli', '08123847482293', '32048595758393749', 1, 'Sigotom', '1993-10-19'),
+(8, 'JL. Raya Kalimulya No.99,Cilodong, Depok', '343422', 'Jawa Barat', 'Kota Depok', 'Kalimulya', 'Cilodong', '08212312343432', '12093900000348002', 13, 'Bandung', '1987-10-19'),
+(9, 'Jl. Raya Kalimulya No.99,Cilodong, Depok', '343422', 'Jawa Barat', 'Kota Depok', 'Kalimulya', 'Cilodong', '0812636378499', '32383747998370', 15, 'Depok', '1993-10-19');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_persyaratan`
+-- Struktur dari tabel `detail_persyaratan`
 --
 
 CREATE TABLE `detail_persyaratan` (
@@ -65,19 +70,28 @@ CREATE TABLE `detail_persyaratan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `detail_persyaratan`
+-- Dumping data untuk tabel `detail_persyaratan`
 --
 
 INSERT INTO `detail_persyaratan` (`id_detail_persyaratan`, `urutan`, `persyaratan`, `id_persyaratan`, `files`) VALUES
 (2, 1, 'MENGISI FORMULIR SPP ', 2, 'F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI'),
 (5, 2, 'MENGISI FORMULIR KUTIPAN PERICIAN PENERIMAAN GAJI (KPPG)', 2, 'F2. SPTB'),
 (6, 3, 'FOTOCOPY SURAT NIKAH LEGALISIR KUA / CAMAT + ASLI', 2, ''),
-(7, 4, 'FOTOCOPY SURAT KEMATIAN LEGALISIR LURAH + ASLI', 2, '');
+(7, 4, 'FOTOCOPY SURAT KEMATIAN LEGALISIR LURAH + ASLI', 2, ''),
+(9, 6, '<p><span style=\"font-size:11.0pt\"><span style=\"font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;\">MENGISI FORMULIR SPP </span></span></p>\r\n', 3, 'F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI'),
+(10, 6, '<p><span style=\"font-size:11.0pt\"><span style=\"font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;\">MENGISI FORMULIR AHLI WARIS</span></span></p>\r\n', 3, 'F5. KETERANGAN AHLI WARIS KOREKSI C110'),
+(11, 6, '<p><span style=\"font-size:11.0pt\"><span style=\"font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;\">MENGISI FORMULIR KUTIPAN PERICIAN PENERIMAAN GAJI (KPPG)</span></span><span style=\"font-size:11.0pt\"><span style=\"font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;\"> &amp; SLIP GAJI</span></span></p>\r\n', 3, 'F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI'),
+(12, 6, '<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">FOTOCOPY SURAT NIKAH LEGALISIR KUA / CAMAT + ASLI</span></span></p>\r\n', 3, ''),
+(13, 1, '<p><span style=\"font-size:11.0pt\"><span style=\"font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;\">MENGISI FORMULIR SPP</span></span></p>\r\n', 4, 'F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI'),
+(14, 2, '<p><span style=\"font-size:11.0pt\"><span style=\"font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;\">MENGISI FORMULIR KUASA AHLI WARIS</span></span></p>\r\n', 4, 'F5. KETERANGAN AHLI WARIS KOREKSI C110'),
+(15, 3, '<p><span style=\"font-size:11.0pt\"><span style=\"font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;\">MENGISI FORMULIR KUTIPAN PERICIAN PENERIMAAN GAJI (KPPG)</span></span><span style=\"font-size:11.0pt\"><span style=\"font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;\"> &amp; SLIP GAJI</span></span></p>\r\n', 4, 'F6. KUTIPAN PERINCIAN PENERIMAAN GAJI KOREKSI'),
+(16, 4, '<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">4. FOTOCOPY SURAT NIKAH LEGALISIR KUA / CAMAT + ASLI</span></span></p>\r\n\r\n<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">5. FOTOCOPY SURAT KEMATIAN LEGALISIR LURAH /SURAT KEMATIAN DARI RS + ASLI <strong><em>(*Harus tandatangan Lurah tidak boleh diwakilkan)</em></strong></span></span></p>\r\n\r\n<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">6. FOTOCOPY KARPEG, KARTU PESERTA TASPEN, KTP PEMOHON</span></span></p>\r\n\r\n<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">7. FOTOCOPY SK CAPEG , KGB (KENAIKAN GAJI BERKALA) TERAKHIR LEGALISIR INSTANSI</span></span></p>\r\n\r\n<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">8. FOTOCOPY BUKU REKENING TABUNGAN (JIKA PEMBAYARAN MELALUI BANK)</span></span></p>\r\n\r\n<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">9. CANTUMKAN NOMOR TELEPON KANTOR</span></span></p>\r\n\r\n<p><span style=\"font-size:11.0pt\"><span style=\"font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;\">10. BUKTI PENGAJUAN UDW DARI INSTANSI</span></span></p>\r\n', 4, ''),
+(20, 1, '<p>Form Permintaan</p>\r\n', 5, 'F1. FORMULIR PERMINTAAN PEMBAYARAN KOREKSI');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `formulir`
+-- Struktur dari tabel `formulir`
 --
 
 CREATE TABLE `formulir` (
@@ -89,17 +103,41 @@ CREATE TABLE `formulir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `formulir`
+-- Dumping data untuk tabel `formulir`
 --
 
 INSERT INTO `formulir` (`id_pengguna`, `id_jenis_formulir`, `id_detail_pengguna`, `status`, `id_formulir`) VALUES
-(9, 4, 4, 0, 10),
-(9, 4, 4, 0, 11);
+(9, 4, 4, 1, 10);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jawaban_pertanyaan`
+-- Struktur dari tabel `formulir_dt`
+--
+
+CREATE TABLE `formulir_dt` (
+  `id_formulir_dt` bigint(20) NOT NULL,
+  `files` varchar(200) NOT NULL,
+  `status` int(11) DEFAULT NULL,
+  `approveBy` int(11) DEFAULT NULL,
+  `createdDate` date DEFAULT NULL,
+  `id_formulir` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `formulir_dt`
+--
+
+INSERT INTO `formulir_dt` (`id_formulir_dt`, `files`, `status`, `approveBy`, `createdDate`, `id_formulir`) VALUES
+(9, 'Pelacakan_Mobil.pdf', 1, NULL, '2020-07-31', 10),
+(10, 'Rental_Mobil.pdf', 1, NULL, '2020-07-31', 10),
+(11, 'Rental_Mobil_2.pdf', 1, NULL, '2020-07-31', 10),
+(12, 'Penyewaan_Mobil.pdf', 1, NULL, '2020-07-31', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `jawaban_pertanyaan`
 --
 
 CREATE TABLE `jawaban_pertanyaan` (
@@ -111,7 +149,7 @@ CREATE TABLE `jawaban_pertanyaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jawaban_pertanyaan`
+-- Dumping data untuk tabel `jawaban_pertanyaan`
 --
 
 INSERT INTO `jawaban_pertanyaan` (`id_jawaban`, `id_pertanyaan`, `jawaban`, `hasil`, `id_jenis`) VALUES
@@ -145,7 +183,7 @@ INSERT INTO `jawaban_pertanyaan` (`id_jawaban`, `id_pertanyaan`, `jawaban`, `has
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_formulir`
+-- Struktur dari tabel `jenis_formulir`
 --
 
 CREATE TABLE `jenis_formulir` (
@@ -159,29 +197,30 @@ CREATE TABLE `jenis_formulir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jenis_formulir`
+-- Dumping data untuk tabel `jenis_formulir`
 --
 
 INSERT INTO `jenis_formulir` (`id_jenis`, `jenis_formulir`, `dibuat_oleh`, `dibuat_tanggal`, `diubah_oleh`, `diubah_tanggal`, `status`) VALUES
-(3, 'B210', 1, '2020-05-01', 0, '0000-00-00', 1),
+(3, 'B210 - Asuransi Kematian Istri/Suami Peserta Pensiun', 1, '2020-05-01', 1, '2020-06-24', 1),
 (4, 'A210 - ASURANSI KEMATIAN ISTERI / SUAMI / ANAK PESERTA AKTIF', 1, '2020-05-15', 0, '0000-00-00', 1),
-(5, 'B110 & SP4A', 1, '2020-05-20', 1, '2020-05-30', 1),
-(6, 'C110', 1, '2020-05-20', 0, '0000-00-00', 1),
-(7, 'D110', 1, '2020-05-20', 0, '0000-00-00', 0),
+(5, 'B110 & SP4A - Pensiun Pertama atau Klim Tabungan Hari Tua', 1, '2020-05-20', 1, '2020-06-24', 1),
+(6, 'C110,JKM - Asuransi Kematian PNS Aktif Meninggal Dunia', 1, '2020-05-20', 1, '2020-06-24', 1),
+(7, 'D110/SP3IP - PNS Keluar', 1, '2020-05-20', 1, '2020-06-24', 2),
 (8, 'E110 & UDW TERUSAN', 1, '2020-05-20', 1, '2020-05-30', 1),
-(9, 'E210', 1, '2020-05-20', 0, '0000-00-00', 1),
+(9, 'E210 - Asuransi Kematian Istri/Suami Setelah Peserta Pensiun Meninggal', 1, '2020-05-20', 1, '2020-06-24', 1),
 (10, 'SP2YP', 1, '2020-05-20', 0, '0000-00-00', 2),
 (11, 'SP4B', 1, '2020-05-20', 1, '2020-05-30', 1),
-(12, 'B310', 1, '2020-05-30', 0, '0000-00-00', 1),
-(13, 'A310', 1, '2020-05-30', 0, '0000-00-00', 1),
+(12, 'B310 - Asuransi Kematian Anak Setelah Peserta Pensiun', 1, '2020-05-30', 1, '2020-06-24', 1),
+(13, 'A310 - Asuransi Kematian Anak Peserta Aktif', 1, '2020-05-30', 1, '2020-06-24', 1),
 (14, 'SP3IP', 1, '2020-05-30', 0, '0000-00-00', 1),
 (15, 'E110 & UDW PUNAH', 1, '2020-05-30', 0, '0000-00-00', 1),
-(16, 'SP4Y', 1, '2020-05-30', 0, '0000-00-00', 1);
+(16, 'SP4Y', 1, '2020-05-30', 0, '0000-00-00', 1),
+(17, 'JKM', 1, '2020-06-25', 0, '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengguna`
+-- Struktur dari tabel `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -195,17 +234,23 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengguna`
+-- Dumping data untuk tabel `pengguna`
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `nama`, `username`, `password`, `email`, `role`, `status`) VALUES
 (1, 'admins', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'admin@gmail.com', 1, 1),
-(9, 'test', '112012311', '827ccb0eea8a706c4c34a16891f84e7b', 'test@gmail.com', 2, 1);
+(9, 'test', '112012311', '827ccb0eea8a706c4c34a16891f84e7b', 'test@gmail.com', 2, 1),
+(10, 'ana', '123', '202cb962ac59075b964b07152d234b70', 'deliana.sormin@gmail.com', 2, 1),
+(11, 'ana', '333', '310dcbbf4cce62f762a2aaa148d556bd', 'deliana.sormin@gmail.com', 2, 1),
+(12, 'Anti', '999', 'b706835de79a2b4e80506f582af3676a', 'deliana.sormin@gmail.com', 2, 1),
+(13, 'Yosi', '123456', 'e10adc3949ba59abbe56e057f20f883e', 'yosi.arios@gmail.com', 2, 1),
+(14, 'Yosi', '123456', 'e10adc3949ba59abbe56e057f20f883e', 'yosi.arios@gmail.com', 2, 1),
+(15, 'anna', '454545', '9ea5e6f10d48803ae38499c0d5e6d93f', 'yosi@yahoo.com', 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `persyaratan`
+-- Struktur dari tabel `persyaratan`
 --
 
 CREATE TABLE `persyaratan` (
@@ -220,16 +265,18 @@ CREATE TABLE `persyaratan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `persyaratan`
+-- Dumping data untuk tabel `persyaratan`
 --
 
 INSERT INTO `persyaratan` (`id_persyaratan`, `dibuat_oleh`, `dibuat_tanggal`, `diubah_oleh`, `diubah_tanggal`, `status`, `id_jenis`, `nama_persyaratan`) VALUES
-(2, 1, '2020-06-01', 0, '0000-00-00', 1, 4, 'PERSYARATAN PENGAJUAN ASURANSI KEMATIAN ISTERI / SUAMI / ANAK PESERTA AKTIF ');
+(2, 1, '2020-06-01', 0, '0000-00-00', 1, 4, 'PERSYARATAN PENGAJUAN ASURANSI KEMATIAN ISTERI / SUAMI / ANAK PESERTA AKTIF '),
+(4, 1, '2020-06-24', 0, '0000-00-00', 1, 6, 'PERSYARATAN PENGAJUAN PESERTA AKTIF MENINGGAL DUNIA'),
+(5, 1, '2020-06-25', 0, '0000-00-00', 1, 17, 'Jaminan Kematian');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pertanyaan`
+-- Struktur dari tabel `pertanyaan`
 --
 
 CREATE TABLE `pertanyaan` (
@@ -246,7 +293,7 @@ CREATE TABLE `pertanyaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pertanyaan`
+-- Dumping data untuk tabel `pertanyaan`
 --
 
 INSERT INTO `pertanyaan` (`id_pertanyaan`, `dibuat_oleh`, `dibuat_tanggal`, `diubah_oleh`, `diubah_tanggal`, `pertanyaan`, `status`, `urutan`, `pilihan_jawaban_1`, `pilihan_jawaban_2`) VALUES
@@ -269,101 +316,113 @@ INSERT INTO `pertanyaan` (`id_pertanyaan`, `dibuat_oleh`, `dibuat_tanggal`, `diu
 --
 
 --
--- Indexes for table `detail_pengguna`
+-- Indeks untuk tabel `detail_pengguna`
 --
 ALTER TABLE `detail_pengguna`
   ADD PRIMARY KEY (`id_detail_pengguna`);
 
 --
--- Indexes for table `detail_persyaratan`
+-- Indeks untuk tabel `detail_persyaratan`
 --
 ALTER TABLE `detail_persyaratan`
   ADD PRIMARY KEY (`id_detail_persyaratan`);
 
 --
--- Indexes for table `formulir`
+-- Indeks untuk tabel `formulir`
 --
 ALTER TABLE `formulir`
   ADD PRIMARY KEY (`id_formulir`);
 
 --
--- Indexes for table `jawaban_pertanyaan`
+-- Indeks untuk tabel `formulir_dt`
+--
+ALTER TABLE `formulir_dt`
+  ADD PRIMARY KEY (`id_formulir_dt`);
+
+--
+-- Indeks untuk tabel `jawaban_pertanyaan`
 --
 ALTER TABLE `jawaban_pertanyaan`
   ADD PRIMARY KEY (`id_jawaban`);
 
 --
--- Indexes for table `jenis_formulir`
+-- Indeks untuk tabel `jenis_formulir`
 --
 ALTER TABLE `jenis_formulir`
   ADD PRIMARY KEY (`id_jenis`);
 
 --
--- Indexes for table `pengguna`
+-- Indeks untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id_pengguna`);
 
 --
--- Indexes for table `persyaratan`
+-- Indeks untuk tabel `persyaratan`
 --
 ALTER TABLE `persyaratan`
   ADD PRIMARY KEY (`id_persyaratan`);
 
 --
--- Indexes for table `pertanyaan`
+-- Indeks untuk tabel `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
   ADD PRIMARY KEY (`id_pertanyaan`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `detail_pengguna`
+-- AUTO_INCREMENT untuk tabel `detail_pengguna`
 --
 ALTER TABLE `detail_pengguna`
-  MODIFY `id_detail_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_detail_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `detail_persyaratan`
+-- AUTO_INCREMENT untuk tabel `detail_persyaratan`
 --
 ALTER TABLE `detail_persyaratan`
-  MODIFY `id_detail_persyaratan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_detail_persyaratan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `formulir`
+-- AUTO_INCREMENT untuk tabel `formulir`
 --
 ALTER TABLE `formulir`
-  MODIFY `id_formulir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_formulir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `jawaban_pertanyaan`
+-- AUTO_INCREMENT untuk tabel `formulir_dt`
+--
+ALTER TABLE `formulir_dt`
+  MODIFY `id_formulir_dt` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT untuk tabel `jawaban_pertanyaan`
 --
 ALTER TABLE `jawaban_pertanyaan`
   MODIFY `id_jawaban` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `jenis_formulir`
+-- AUTO_INCREMENT untuk tabel `jenis_formulir`
 --
 ALTER TABLE `jenis_formulir`
-  MODIFY `id_jenis` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_jenis` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `pengguna`
+-- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_pengguna` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `persyaratan`
+-- AUTO_INCREMENT untuk tabel `persyaratan`
 --
 ALTER TABLE `persyaratan`
-  MODIFY `id_persyaratan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_persyaratan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `pertanyaan`
+-- AUTO_INCREMENT untuk tabel `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
   MODIFY `id_pertanyaan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;

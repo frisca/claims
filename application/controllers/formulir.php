@@ -96,7 +96,11 @@
 		}
 
 		public function persyaratan(){
-			$data['persyaratan'] = $this->formulir_model->getListFormulir($this->session->userdata('id'))->result();
+			if($this->session->userdata('role') == 1){
+				$data['persyaratan'] = $this->formulir_model->getListFormulir()->result();
+			}else{
+				$data['persyaratan'] = $this->formulir_model->getListFormulirById($this->session->userdata('id'))->result();
+			}
 			$this->load->view('formulir/persyaratan', $data);
 		}
 
@@ -359,8 +363,81 @@
 		}
 
 		public function getNotif(){
-			$data = $this->formulir_model->getNotif()->result();
+			$data['notif'] = $this->formulir_model->getNotif()->result();
 			echo json_encode($data);
+		}
+
+		public function uploadBerkas($id){
+			// $config['upload_path'] = './upload/';
+			// $config['allowed_types'] = 'pdf';
+			// var_dump($id);exit();
+			// $new_name                   = time().$_FILES["upload"]['name'];
+			// $config['file_name']        = $new_name;
+			// $config['upload_path']		= './formulir/' . $id;
+
+			// $old = umask(0);
+			// $path_formulir = $config['upload_path'];
+			// if(is_file($path_formulir))
+			// {
+			// 	chmod($path_formulir, 0777);
+			// }
+			// umask($old);
+
+			// $this->load->library('upload', $config);
+		 
+			// if ($this->upload->do_upload('upload')){
+			// 	var_dump('Berhasil');
+			// }else{
+			// 	var_dump('Gagal');
+			// }
+			if(!empty($_FILES['userfile']['name'])) {
+
+				$filesCount = count($_FILES['userfile']['name']);
+		
+				for($i = 0; $i < $filesCount; $i++) {
+		
+					$_FILES['userFile']['name'] = $_FILES['userfile']['name'][$i];
+					$_FILES['userFile']['type'] = $_FILES['userfile']['type'][$i];
+					$_FILES['userFile']['tmp_name'] = $_FILES['userfile']['tmp_name'][$i];
+					$_FILES['userFile']['error'] = $_FILES['userfile']['error'][$i];
+					$_FILES['userFile']['size'] = $_FILES['userfile']['size'][$i];
+		
+					$config['upload_path'] = './upload/';
+					$config['allowed_types'] = 'pdf|doc|txt|jpg|png';
+		
+					$this->load->library('upload', $config);
+		
+					if($this->upload->do_upload('userFile')){
+						$fileData = $this->upload->data();
+						$uploadData[$i]['file_name'] = $fileData['file_name'];
+						$uploadData[$i]['createdDate'] = date("Y-m-d H:i:s");
+						$form = array(
+							'files' => $uploadData[$i]['file_name'],
+							'id_formulir' => $id,
+							'createdDate' => $uploadData[$i]['createdDate'],
+							'status' => 1
+						);
+						$res = $this->global_model->insertData('formulir_dt', $form);
+					}else{
+						// var_dump('gagal');exit();
+						return redirect(base_url() . 'formulir/list_persyaratan/' . $id);
+					}
+		
+				}
+			}
+
+			if($res == true){
+				$u_data = array('status' => 1);
+				$res_update = $this->global_model->updateData('formulir', array('id_formulir' => $id), $u_data);
+				if($res_update == true){
+					$this->session->set_flashdata('success', 'Data formulir berhasil dikirim');
+					return redirect(base_url() . 'formulir/persyaratan');
+				}else{
+					return redirect(base_url() . 'formulir/list_persyaratan/' . $id);
+				}
+			}else{
+				return redirect(base_url() . 'formulir/list_persyaratan/' . $id);
+			}
 		}
 	}
 ?>

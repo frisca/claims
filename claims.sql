@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 31 Jul 2020 pada 11.19
+-- Waktu pembuatan: 10 Agu 2020 pada 20.36
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 5.6.39
 
@@ -99,15 +99,18 @@ CREATE TABLE `formulir` (
   `id_jenis_formulir` int(11) NOT NULL,
   `id_detail_pengguna` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `id_formulir` int(11) NOT NULL
+  `id_formulir` int(11) NOT NULL,
+  `read` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `formulir`
 --
 
-INSERT INTO `formulir` (`id_pengguna`, `id_jenis_formulir`, `id_detail_pengguna`, `status`, `id_formulir`) VALUES
-(9, 4, 4, 1, 10);
+INSERT INTO `formulir` (`id_pengguna`, `id_jenis_formulir`, `id_detail_pengguna`, `status`, `id_formulir`, `read`) VALUES
+(9, 4, 4, 1, 11, 1),
+(9, 5, 4, 2, 12, 1),
+(9, 5, 4, 3, 13, 0);
 
 -- --------------------------------------------------------
 
@@ -121,18 +124,19 @@ CREATE TABLE `formulir_dt` (
   `status` int(11) DEFAULT NULL,
   `approveBy` int(11) DEFAULT NULL,
   `createdDate` date DEFAULT NULL,
-  `id_formulir` bigint(20) NOT NULL
+  `id_formulir` bigint(20) NOT NULL,
+  `id_detail_persyaratan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `formulir_dt`
 --
 
-INSERT INTO `formulir_dt` (`id_formulir_dt`, `files`, `status`, `approveBy`, `createdDate`, `id_formulir`) VALUES
-(9, 'Pelacakan_Mobil.pdf', 1, NULL, '2020-07-31', 10),
-(10, 'Rental_Mobil.pdf', 1, NULL, '2020-07-31', 10),
-(11, 'Rental_Mobil_2.pdf', 1, NULL, '2020-07-31', 10),
-(12, 'Penyewaan_Mobil.pdf', 1, NULL, '2020-07-31', 10);
+INSERT INTO `formulir_dt` (`id_formulir_dt`, `files`, `status`, `approveBy`, `createdDate`, `id_formulir`, `id_detail_persyaratan`) VALUES
+(17, 'Pelacakan_Mobil.pdf', 1, NULL, '2020-08-10', 11, 2),
+(18, 'Penyewaan_Mobil2.pdf', 1, NULL, '2020-08-10', 11, 5),
+(19, 'Penyewaan_Mobil.pdf', 1, NULL, '2020-08-10', 11, 6),
+(20, 'Reservasi_Hotel.pdf', 1, NULL, '2020-08-10', 11, 7);
 
 -- --------------------------------------------------------
 
@@ -245,7 +249,8 @@ INSERT INTO `pengguna` (`id_pengguna`, `nama`, `username`, `password`, `email`, 
 (12, 'Anti', '999', 'b706835de79a2b4e80506f582af3676a', 'deliana.sormin@gmail.com', 2, 1),
 (13, 'Yosi', '123456', 'e10adc3949ba59abbe56e057f20f883e', 'yosi.arios@gmail.com', 2, 1),
 (14, 'Yosi', '123456', 'e10adc3949ba59abbe56e057f20f883e', 'yosi.arios@gmail.com', 2, 1),
-(15, 'anna', '454545', '9ea5e6f10d48803ae38499c0d5e6d93f', 'yosi@yahoo.com', 2, 1);
+(15, 'anna', '454545', '9ea5e6f10d48803ae38499c0d5e6d93f', 'yosi@yahoo.com', 2, 1),
+(16, 'customerservice', 'service', '827ccb0eea8a706c4c34a16891f84e7b', 'customer@gmail.com', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -389,13 +394,13 @@ ALTER TABLE `detail_persyaratan`
 -- AUTO_INCREMENT untuk tabel `formulir`
 --
 ALTER TABLE `formulir`
-  MODIFY `id_formulir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_formulir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `formulir_dt`
 --
 ALTER TABLE `formulir_dt`
-  MODIFY `id_formulir_dt` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_formulir_dt` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `jawaban_pertanyaan`
@@ -413,7 +418,7 @@ ALTER TABLE `jenis_formulir`
 -- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_pengguna` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `persyaratan`

@@ -776,30 +776,134 @@
                 }
             });
             CKEDITOR.replace('edi');
-        });
 
-        function getNotif(){
-			$.getJSON("<?php echo base_url('formulir/getNotif');?>", function(data){
+            $.getJSON("<?php echo base_url('formulir/getNotif');?>", function(data){
 				console.log('response: ', data);
                 // $('.list-group').append('<a href="#" class="list-group-item list-group-item-action">' +
                 // '</a>');
+                // data.notif.length = 2;
+                console.log(data.notif.length);
+                urls = "";
                 if(data.notif.length == 1){
                     // $('.list-footer').css('margin-top', '-179px');
                     $.each(data.notif, function( i, val ) {
-                        $('.list-group').html('<a href="#" class="list-group-item list-group-item-action">' +
+                        console.log('status123: ', val);
+                        if (val.status == "1") {
+                            urls = "<?php echo base_url()?>status/process_detail/" + val.id_formulir;
+                        }
+
+                        if (val.status == "3") {
+                            urls = "<?php echo base_url()?>status/detail_reject/" + val.id_formulir;
+                        }
+
+                        if (val.status == "2") {
+                            urls = "<?php echo base_url()?>status/detail_approve/" + val.id_formulir;
+                        }
+
+                        $('.list-group').append('<a href="'+urls+'" class="list-group-item list-group-item-action">' +
                             '<div class="notification-info">' +
-                                '<div class="notification-list-user-img"><img src="assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>' +
+                                '<div class="notification-list-user-img"><img src="<?php echo base_url("assets/images/avatar-1.jpg");?>" alt="" class="user-avatar-md rounded-circle"></div>' +
                                 '<div class="notification-list-user-block"><span class="notification-list-user-name">'+val.nama+'</span>is klim ' + val.jenis_formulir + 
                             '</div>' +
                             '</div>' +
                         '</a>');
                     });
                     $('.list-footer').css('margin-top', '-161px');
+                    $('li.notification a.nav-icons').append('<span class="counter">'+data.notif.length+'</span>');
+                }
+
+                if(data.notif.length == 2){
+                    // $('.list-footer').css('margin-top', '-179px');
+                    $.each(data.notif, function( i, val ) {
+                        if (val.status == "1") {
+                            urls = "<?php echo base_url()?>status/process_detail/" + val.id_formulir;
+                        }
+
+                        if (val.status == "3") {
+                            urls = "<?php echo base_url()?>status/detail_reject/" + val.id_formulir;
+                        }
+
+                        if (val.status == "2") {
+                            urls = "<?php echo base_url()?>status/detail_approve/" + val.id_formulir;
+                        }
+                        
+                        $('.list-group').append('<a href="'+urls+'" class="list-group-item list-group-item-action">' +
+                            '<div class="notification-info">' +
+                                '<div class="notification-list-user-img"><img src="<?php echo base_url("assets/images/avatar-1.jpg");?>" alt="" class="user-avatar-md rounded-circle"></div>' +
+                                '<div class="notification-list-user-block"><span class="notification-list-user-name">'+val.nama+'</span>is klim ' + val.jenis_formulir + 
+                            '</div>' +
+                            '</div>' +
+                        '</a>');
+                    });
+                    $('.list-footer').css('margin-top', '-118px');
+                    $('li.notification a.nav-icons').append('<span class="counter">'+data.notif.length+'</span>');
+                }
+
+                if(data.notif.length == 3){
+                    // $('.list-footer').css('margin-top', '-179px');
+                    $.each(data.notif, function( i, val ) {
+                        if (val.status == "1") {
+                            urls = "<?php echo base_url()?>status/process_detail/" + val.id_formulir;
+                        }
+
+                        if (val.status == "3") {
+                            urls = "<?php echo base_url()?>status/detail_reject/" + val.id_formulir;
+                        }
+
+                        if (val.status == "2") {
+                            urls = "<?php echo base_url()?>status/detail_approve/" + val.id_formulir;
+                        }
+
+                        $('.list-group').append('<a href="'+urls+'" class="list-group-item list-group-item-action">' +
+                            '<div class="notification-info">' +
+                                '<div class="notification-list-user-img"><img src="<?php echo base_url("assets/images/avatar-1.jpg");?>" alt="" class="user-avatar-md rounded-circle"></div>' +
+                                '<div class="notification-list-user-block"><span class="notification-list-user-name">'+val.nama+'</span>is klim ' + val.jenis_formulir + 
+                            '</div>' +
+                            '</div>' +
+                        '</a>');
+                    });
+                    $('.list-footer').css('margin-top', '-30px');
+                    $('li.notification a.nav-icons').append('<span class="counter">'+data.notif.length+'</span>');
+                }
+
+                if(data.notif.length == 0){
+                    // $('.list-footer').css('margin-top', '-179px');
+                    $.each(data.notif, function( i, val ) {
+                        $('.list-group').append('<a href="#" class="list-group-item list-group-item-action">' +
+                        '</a>');
+                    });
+                    $('.list-footer').css('display', 'none');
+                    $('.notification-dropdown li .slimScrollDiv').css('height', '39px');
+                    $('.list-group').append('<div style="padding: 10px 11px 11px 15px;">Tidak ada notifikasi</div>');
+                    // $('.list-footer').css('margin-top', '-161px');
+                    // $('li.notification a.nav-icons').append('<span class="counter">'+data.notif.length+'</span>');
                 }
 			});
-		}
+        });
 
-        setInterval(function(){getNotif()}, 1000);
+        // function getNotif(){
+		// 	$.getJSON("<?php echo base_url('formulir/getNotif');?>", function(data){
+		// 		console.log('response: ', data);
+        //         // $('.list-group').append('<a href="#" class="list-group-item list-group-item-action">' +
+        //         // '</a>');
+        //         if(data.notif.length == 1){
+        //             // $('.list-footer').css('margin-top', '-179px');
+        //             $.each(data.notif, function( i, val ) {
+        //                 $('.list-group').html('<a href="#" class="list-group-item list-group-item-action">' +
+        //                     '<div class="notification-info">' +
+        //                         '<div class="notification-list-user-img"><img src="<?php echo base_url("assets/images/avatar-1.jpg");?>" alt="" class="user-avatar-md rounded-circle"></div>' +
+        //                         '<div class="notification-list-user-block"><span class="notification-list-user-name">'+val.nama+'</span>is klim ' + val.jenis_formulir + 
+        //                     '</div>' +
+        //                     '</div>' +
+        //                 '</a>');
+        //             });
+        //             $('.list-footer').css('margin-top', '-161px');
+        //             $('li.notification a').append('<span>'+data.notif.length+'</span>');
+        //         }
+		// 	});
+		// }
+
+        // setInterval(function(){getNotif()}, 1500);
     </script>
 </body>
  

@@ -26,7 +26,7 @@
                 <!-- pageheader -->
                 <!-- ============================================================== -->
                 <?php
-                    if($this->session->userdata('role') != 1){
+                    if($this->session->userdata('role') == 2){
                 ?>
                 <div class="row">
                     <div class="col-lg-12">

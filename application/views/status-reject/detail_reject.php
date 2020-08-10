@@ -109,33 +109,37 @@
                             <div class="card-header">
                                 <h4 class="float-left">UPLOAD BERKAS / DOKUMEN</h4>
                             </div>
-                            <form method="post" action="<?php echo base_url('formulir/uploadBerkas/' . $formulir->id_formulir);?>" enctype="multipart/form-data">
+                            <form method="post" action="<?php echo base_url('status/uploadRejectBerkas/' . $formulir->id_formulir);?>" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="form-group">
                                         Silahkan upload berkas / dokumen yang telah Anda persiapkan sesuai dengan persyaratan diatas.
                                     </div>
                                     <?php
                                         $key = 1;
-                                        foreach($persyaratan as $value)
+                                        foreach($status as $values)
                                         {
-                                            $tamp = explode(' ', $value->persyaratan);
+                                            $tamp = explode(' ', $values->persyaratan);
                                             if($tamp[0] == "MENGISI"){
-                                                $label = str_replace('MENGISI ', '', trim($value->persyaratan)); 
+                                                $label = str_replace('MENGISI ', '', trim($values->persyaratan)); 
                                     ?>
                                         <div class="form-group">
                                             <label><?php echo $key . '. ' . $label . '*';?></label>
                                             <input type="file" class="form-control" name="userfile[]" multiple required/>
                                             <input type="hidden" class="form-control" name="det_persyaratan[]" multiple
-                                            value="<?php echo $value->id_detail_persyaratan;?>"/>
+                                            value="<?php echo $values->id_detail_persyaratan;?>"/>
+                                            <input type="hidden" class="form-control" name="id_formulir_dt[]" multiple
+                                            value="<?php echo $values->id_formulir_dt;?>"/>
                                         </div>
                                     <?php
                                             }else{
                                     ?>
                                         <div class="form-group">
-                                            <label><?php echo $key . '. ' . $value->persyaratan . '*';?></label>
+                                            <label><?php echo $key . '. ' . $values->persyaratan . '*';?></label>
                                             <input type="file" class="form-control" name="userfile[]" multiple required/>
                                             <input type="hidden" class="form-control" name="det_persyaratan[]" multiple
-                                            value="<?php echo $value->id_detail_persyaratan;?>"/>
+                                            value="<?php echo $values->id_detail_persyaratan;?>"/>
+                                            <input type="hidden" class="form-control" name="id_formulir_dt[]" multiple
+                                            value="<?php echo $values->id_formulir_dt;?>"/>
                                         </div>
                                     <?php
                                             }
@@ -145,7 +149,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-space btn-primary">Simpan</button>
-                                    <a href="<?php echo base_url('home/index');?>">
+                                    <a href="<?php echo base_url('status/reject');?>">
                                         <button type="button" class="btn btn-space btn-secondary">Kembali</button>
                                     </a>
                                 </div>

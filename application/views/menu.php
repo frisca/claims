@@ -33,6 +33,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?php echo base_url('customer/index');?>">Customer</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo base_url('customer_service/index');?>">Customer Service</a>
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -51,6 +54,51 @@
                             <i class="fa fa-clipboard"></i>Persyaratan
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fa fa-fw fa-file"></i>Status</a>
+                        <div id="submenu-3" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo base_url('status/process');?>">Proses</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo base_url('status/approve');?>">Approve</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo base_url('status/reject');?>">Reject</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <?php 
+                        }else if($this->session->userdata('role') == 3){
+                    ?>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url('status/process');?>">
+                            <i class="fa fa-file"></i>Status Formulir
+                        </a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="<?php echo base_url('home/index');?>">
+                            <i class="fas fa-home"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fa fa-fw fa-file"></i>Status</a>
+                        <div id="submenu-3" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo base_url('status/process');?>">Proses</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo base_url('status/approve');?>">Approve</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo base_url('status/reject');?>">Reject</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                     <?php
                         }else{
                     ?>
@@ -63,6 +111,19 @@
                         <a class="nav-link" href="<?php echo base_url('formulir/persyaratan');?>">
                             <i class="fa fa-clipboard"></i>Formulir
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fa fa-fw fa-file"></i>Status</a>
+                        <div id="submenu-3" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo base_url('status/approve');?>">Approve</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo base_url('status/reject');?>">Reject</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <?php
                         }

@@ -11,6 +11,7 @@
 					left join persyaratan p on p.id_persyaratan = dp.id_persyaratan
 					where dp.id_persyaratan = " . $id . "
 					order by dp.urutan asc";
+			var_dump($query);exit();
 			return $this->db->query($query);
 		}
 	}

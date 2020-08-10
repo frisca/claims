@@ -12,7 +12,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown notification">
-                    <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                    <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i></a>
                     <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                         <li>
                             <div class="notification-title"> Notification</div>
@@ -54,7 +54,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="list-footer"> <a href="#">View all notifications</a></div>
+                            <div class="list-footer"> <a href="<?php echo base_url()?>status/process/">View all notifications</a></div>
                         </li>
                     </ul>
                 </li>

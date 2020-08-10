@@ -88,10 +88,12 @@
 
 		public function list_persyaratan($id){
 			$formulir = $this->global_model->getDataByCondition('formulir', array('id_formulir'=>$id))->row();
-			$persyaratan = $this->global_model->getDataByCondition('persyaratan', array('id_jenis'=>$formulir->id_jenis_formulir))->row();
+			$persyaratan = $this->global_model->getDataByCondition('persyaratan', array('id_jenis'=>(int)$formulir->id_jenis_formulir))->row();
+			var_dump($persyaratan);exit();
 			$data['persyaratan'] = $this->persyaratan_model->getListDetailPersyaratan($persyaratan->id_persyaratan)->result();
 			$data['syarat'] = $this->global_model->getDataByCondition('persyaratan', array('id_jenis'=>$formulir->id_jenis_formulir))->row();
 			$data['formulir'] = $formulir;
+			$data['total'] = $this->formulir_model->getCountFormulirDt($id)->row();
 			$this->load->view('formulir/list_persyaratan', $data);
 		}
 
@@ -363,7 +365,11 @@
 		}
 
 		public function getNotif(){
-			$data['notif'] = $this->formulir_model->getNotif()->result();
+			if($this->session->userdata('role') == 1 || $this->session->userdata('role') == 3){
+				$data['notif'] = $this->formulir_model->getNotif()->result();
+			}else{
+				$data['notif'] = $this->formulir_model->getNotifUser($this->session->userdata('id'))->result();
+			}
 			echo json_encode($data);
 		}
 
@@ -395,7 +401,6 @@
 				$filesCount = count($_FILES['userfile']['name']);
 		
 				for($i = 0; $i < $filesCount; $i++) {
-		
 					$_FILES['userFile']['name'] = $_FILES['userfile']['name'][$i];
 					$_FILES['userFile']['type'] = $_FILES['userfile']['type'][$i];
 					$_FILES['userFile']['tmp_name'] = $_FILES['userfile']['tmp_name'][$i];
@@ -415,11 +420,14 @@
 							'files' => $uploadData[$i]['file_name'],
 							'id_formulir' => $id,
 							'createdDate' => $uploadData[$i]['createdDate'],
-							'status' => 1
+							'status' => 1,
+							'id_detail_persyaratan' => $this->input->post('det_persyaratan')[$i]
 						);
+						$this->session->set_flashdata('success', 'Dokumen berhasil disimpan');
 						$res = $this->global_model->insertData('formulir_dt', $form);
 					}else{
 						// var_dump('gagal');exit();
+						$this->session->set_flashdata('error', 'Dokumen gagal disimpan');
 						return redirect(base_url() . 'formulir/list_persyaratan/' . $id);
 					}
 		

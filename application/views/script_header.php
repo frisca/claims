@@ -18,7 +18,19 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/vendor/datatables/css/dataTables.bootstrap4.css');?>">
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckfinder/ckfinder.js"></script>
-
+    <style>
+        span.counter{
+            background-color: red;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 10px;
+            line-height: 1;
+            padding: 3px 5.5px;
+            position: absolute;
+            right: 6px;
+            top: 12px;
+        }
+    </style>
     <title>Pengajuan Klim Asuransi Online PT Taspen</title>
 </head>
 
